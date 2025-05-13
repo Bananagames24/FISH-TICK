@@ -7,8 +7,16 @@ public class Utility : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
     public void Quit()
     {
         Application.Quit();
+    }
+    public void Help()
+    {
+       
     }
 }
