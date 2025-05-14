@@ -7,12 +7,15 @@ public class Timer : MonoBehaviour
     [SerializeField] private Image uiFill;
     public int Duration;
     [SerializeField] private int remaningDuration;
+    private bool pause;
+    [SerializeField] private RoundEnd roundEnd;
+    [SerializeField] private GameManeger gameManeger;
 
     void Start()
     {
         Beign(Duration);
     }
-    private void Beign(int second)
+    public void Beign(int second)
     {
         remaningDuration = second;
         StartCoroutine(UpdateTimer());
@@ -21,18 +24,40 @@ public class Timer : MonoBehaviour
     {
         while (remaningDuration>=0)
         {
-            uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remaningDuration);
-            remaningDuration--;
-            yield return new WaitForSeconds(1f);
+            if (!pause)
+            {
+                uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remaningDuration);
+                remaningDuration--;
+                yield return new WaitForSeconds(1f);
+            }
+            yield return null;
         }
-        {
-            OnEnd();
-        }
-
+        OnEnd();
+    }
+    public void Pause()
+    {
+        pause = !pause;
     }
     private void OnEnd()
     {
         Debug.Log("end");
+
+        if (gameManeger.players[0].Score > gameManeger.players[1].Score)
+        {
+            gameManeger.players[0].RoundsWon++;
+            gameManeger.RevealScore();
+        }
+        else if(gameManeger.players[0].Score < gameManeger.players[1].Score)
+        {
+            gameManeger.players[1].RoundsWon++;
+            gameManeger.RevealScore();
+        }
+        else
+        {
+            gameManeger.players[0].RoundsWon++;
+            gameManeger.players[1].RoundsWon++;
+            gameManeger.RevealScore();
+        }
     }
 
     void Update()
