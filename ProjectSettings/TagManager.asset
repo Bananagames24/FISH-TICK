@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - FishPuddle
+  - FishPuddle2
+  - FishPuddle1
   layers:
   - Default
   - TransparentFX

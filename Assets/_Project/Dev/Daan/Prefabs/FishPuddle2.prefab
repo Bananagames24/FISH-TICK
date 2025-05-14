@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2682306807799907329}
   - component: {fileID: 6177968672201723704}
   m_Layer: 0
-  m_Name: FishPuddle
-  m_TagString: FishPuddle
+  m_Name: FishPuddle2
+  m_TagString: FishPuddle2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
