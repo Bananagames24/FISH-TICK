@@ -3,22 +3,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int Score1;
-    public int Score2;
+    public float score1;
+    public float score2;
+    public float score1Multiplier = 1f;
+    public float score2Multiplier = 1f;
+
+    public bool gameStarted = false;
 
     public TextMeshProUGUI scoreText1;
     public TextMeshProUGUI scoreText2;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        scoreText1.text = "Score: " + Score1;
-        scoreText2.text = "Score: " + Score2;
+        scoreText1.text = "Score: " + score1;
+        scoreText2.text = "Score: " + score2;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        scoreText1.text = "Score: " + Score1;
-        scoreText2.text = "Score: " + Score2;
+        scoreText1.text = "Score: " + score1;
+        scoreText2.text = "Score: " + score2;
     }
 }

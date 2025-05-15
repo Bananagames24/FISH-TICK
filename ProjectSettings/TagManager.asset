@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FishPuddle2
   - FishPuddle1
+  - PufferFish
   layers:
   - Default
   - TransparentFX
