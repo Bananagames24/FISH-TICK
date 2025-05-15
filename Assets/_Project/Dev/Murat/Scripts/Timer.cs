@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        Beign(Duration);
+
     }
     public void Beign(int second)
     {
@@ -40,8 +40,6 @@ public class Timer : MonoBehaviour
     }
     private void OnEnd()
     {
-        Debug.Log("end");
-
         if (gameManeger.players[0].Score > gameManeger.players[1].Score)
         {
             gameManeger.players[0].RoundsWon++;
