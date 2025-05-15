@@ -5,9 +5,9 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private GameObject fishPuddlePrefab1;
     [SerializeField] private GameObject fishPuddlePrefab2;
     public int fishPuddleCount1 = 0;
-    [SerializeField] private float spawnDelay1 = 2f;
+    [SerializeField] private float spawnDelay1 = 4f;
     public int fishPuddleCount2 = 0;
-    [SerializeField] private float spawnDelay2 = 2f;
+    [SerializeField] private float spawnDelay2 = 4f;
     Vector3 spawnPoint1;
     Vector3 spawnPoint2;
     float y = 0.5f;
@@ -28,22 +28,30 @@ public class FishSpawner : MonoBehaviour
 
     private void Update()
     {
-        spawnDelay1 -= Time.deltaTime;
-        spawnDelay2 -= Time.deltaTime;
+        if (spawnDelay1 >= 0)
+        {
+            spawnDelay1 -= Time.deltaTime;
+        }
+        
+        if (spawnDelay2 >= 0)
+        {
+            spawnDelay2 -= Time.deltaTime;
+        }
 
         if (spawnDelay1 <= 0 && fishPuddleCount1 < 10) 
         { 
             Instantiate(fishPuddlePrefab1, spawnPoint1, Quaternion.identity);
-            spawnDelay1 = 0.5f;
+            spawnDelay1 = Random.Range(0.5f, 1.5f);
             fishPuddleCount1++;
             x1 = Random.Range(-5, 5);
             z1 = Random.Range(-10, -1);
             spawnPoint1 = new Vector3(x1, y, z1);
         }
+        
         if (spawnDelay2 <= 0 && fishPuddleCount2 < 10)
         {
             Instantiate(fishPuddlePrefab2, spawnPoint2, Quaternion.identity);
-            spawnDelay2 = 0.5f;
+            spawnDelay2 = Random.Range(0.5f, 1.5f);
             fishPuddleCount2++;
             x2 = Random.Range(-5, 5);
             z2 = Random.Range(1, 10);
