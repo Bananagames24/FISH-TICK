@@ -6,15 +6,9 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private Image uiFill;
     public int Duration;
-    [SerializeField] private int remaningDuration;
+    private int remaningDuration;
     private bool pause;
-    [SerializeField] private RoundEnd roundEnd;
     [SerializeField] private GameManeger gameManeger;
-
-    void Start()
-    {
-
-    }
     public void Beign(int second)
     {
         remaningDuration = second;
@@ -56,10 +50,5 @@ public class Timer : MonoBehaviour
             gameManeger.players[1].RoundsWon++;
             gameManeger.RevealScore();
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

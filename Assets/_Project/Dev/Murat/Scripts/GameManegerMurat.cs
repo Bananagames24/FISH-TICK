@@ -11,6 +11,7 @@ public class GameManeger : MonoBehaviour
     [SerializeField] private GameObject EndrezoltScreen;
     [SerializeField] private List<TextMeshProUGUI> CountDown;
     [SerializeField] private List<string> CountDownText;
+    [SerializeField] private List<GameObject> uiGameObjects;
     [SerializeField] private Timer Timer;
     private float CountDowntimer = 0.3f;
     private bool CountDownBool = true;
@@ -39,6 +40,10 @@ public class GameManeger : MonoBehaviour
             CountDown[i].text = CountDownText[CountDownCounter];
             CountDown[i].gameObject.SetActive(true);
         }
+        for (int i = 0; i < uiGameObjects.Count; i++)
+        {
+            uiGameObjects[i].SetActive(false);
+        }
         boolCancal = true;
     }
     private void ExstendSize()
@@ -50,7 +55,6 @@ public class GameManeger : MonoBehaviour
                 if (CountDownCounter > 3)
                 {
                     CountingDown();
-                    
                 }
                 else
                 {
@@ -89,10 +93,12 @@ public class GameManeger : MonoBehaviour
         {
             CountDown[i].gameObject.SetActive(false);
         }
+        for(int i = 0;i < uiGameObjects.Count; i++)
+        {
+            uiGameObjects[i].SetActive(true);
+        }
         Timer.Beign(Timer.Duration);
     }
-
-    
     public void RevealScore()
     {
         if (players[0].Score > players[1].Score)
@@ -124,7 +130,4 @@ public class GameManeger : MonoBehaviour
             players[i].Score = 0;
         }
     }
-
-
-
 }
