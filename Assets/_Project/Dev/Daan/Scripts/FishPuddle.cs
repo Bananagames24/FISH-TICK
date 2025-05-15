@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FishPuddle : MonoBehaviour
 {
@@ -11,20 +12,21 @@ public class FishPuddle : MonoBehaviour
     private void Start()
     {
         fishSpawner = FindAnyObjectByType<FishSpawner>();
-        minSize = new Vector3(0.3f, 0.3f, 0.3f);
-        maxSize = new Vector3(1.5f, 1.5f, 1.5f);
+        minSize = new Vector3(0.1f, 0.1f, 0.1f);
+        maxSize = new Vector3(0.6f, 0.6f, 0.6f);
         transform.localScale = minSize;
     }
 
     private void Update()
     {
-        if(transform.localScale.x >= 1)
+        transform.Rotate(new Vector3(0, 1, 0) * 25 * Time.deltaTime);
+        if (transform.localScale.x >= 0.4f)
         {
             scoreMultiplier = 2f;
         }
         if(transform.localScale.x < maxSize.x)
         {
-            transform.localScale += new Vector3(0.15f, 0.15f, 0.15f) * Time.deltaTime;
+            transform.localScale += new Vector3(0.05f, 0.05f, 0.05f) * Time.deltaTime;
         }
         else if(CompareTag("FishPuddle1"))
         {

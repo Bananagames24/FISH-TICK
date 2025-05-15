@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FishSpawner : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private float spawnDelay2 = 4f;
     Vector3 spawnPoint1;
     Vector3 spawnPoint2;
+    public List<GameObject> fishPuddles1 = new List<GameObject>();
+    public List<GameObject> fishPuddles2 = new List<GameObject>();
     float y = 0.5f;
     float x1;
     float z1;
@@ -40,7 +44,7 @@ public class FishSpawner : MonoBehaviour
 
         if (spawnDelay1 <= 0 && fishPuddleCount1 < 10) 
         { 
-            Instantiate(fishPuddlePrefab1, spawnPoint1, Quaternion.identity);
+            fishPuddles1.Add(Instantiate(fishPuddlePrefab1, spawnPoint1, Quaternion.identity));
             spawnDelay1 = Random.Range(0.5f, 1.5f);
             fishPuddleCount1++;
             x1 = Random.Range(-5, 5);
@@ -50,7 +54,7 @@ public class FishSpawner : MonoBehaviour
         
         if (spawnDelay2 <= 0 && fishPuddleCount2 < 10)
         {
-            Instantiate(fishPuddlePrefab2, spawnPoint2, Quaternion.identity);
+            fishPuddles2.Add(Instantiate(fishPuddlePrefab2, spawnPoint1, Quaternion.identity));
             spawnDelay2 = Random.Range(0.5f, 1.5f);
             fishPuddleCount2++;
             x2 = Random.Range(-5, 5);

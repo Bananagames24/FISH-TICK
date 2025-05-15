@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121533656203279102}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -7857966346099927656, guid: 1a67b2cf9cda6bc4d9227604a8ceea63, type: 3}
 --- !u!23 &2682306807799907329
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0b3a9bf0067f505458752f18f4dc5a24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,7 +107,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 5, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-5128614612835685485
 MonoBehaviour:
@@ -121,3 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab41ee659974ba5458cac843d415e7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishSpawner: {fileID: 0}
+  scoreMultiplier: 1

@@ -18,20 +18,13 @@ public class CameraScript: MonoBehaviour
                     Destroy(hit.collider.gameObject);
                     fishSpawner.fishPuddleCount1--;
                     gameManager.score1 += 1;
-                    Debug.Log("Hit a fish puddle!");
                 }
                 else if(hit.collider.CompareTag("FishPuddle2"))
                 {
                     Destroy(hit.collider.gameObject);
                     fishSpawner.fishPuddleCount2--;
                     gameManager.score2 += 1;
-                    Debug.Log("Hit a fish puddle!");
                 }
-                else
-                {
-                Debug.Log("Hit something else!");
-                }
-                
             }
         }
     }
