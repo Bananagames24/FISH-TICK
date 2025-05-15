@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiFill: {fileID: 642232755}
   Duration: 60
-  gameManeger: {fileID: 1281615052}
+  gameManeger: {fileID: 0}
 --- !u!114 &9861648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2698,7 +2698,7 @@ GameObject:
   - component: {fileID: 1222614018}
   - component: {fileID: 1222614017}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2810,7 +2810,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1281615050}
   - component: {fileID: 1281615051}
-  - component: {fileID: 1281615052}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2852,30 +2851,6 @@ MonoBehaviour:
   gameStarted: 0
   scoreText1: {fileID: 894069110}
   scoreText2: {fileID: 416247622}
---- !u!114 &1281615052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281615049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d52eedcd8f3a74dba0e1239c427b86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  players: []
-  Scores:
-  - {fileID: 894069110}
-  - {fileID: 416247622}
-  WinLose: []
-  EndrezoltScreen: {fileID: 0}
-  CountDown:
-  - {fileID: 698062509}
-  - {fileID: 451858923}
-  CountDownText: []
-  uiGameObjects: []
-  Timer: {fileID: 9861647}
 --- !u!1 &1302130269
 GameObject:
   m_ObjectHideFlags: 0

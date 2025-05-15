@@ -31,11 +31,13 @@ public class FishPuddle : MonoBehaviour
         else if(CompareTag("FishPuddle1"))
         {
             fishSpawner.fishPuddleCount1--;
+            fishSpawner.fishPuddles1.Remove(gameObject);
             Destroy(gameObject);
         }
         else if (CompareTag("FishPuddle2"))
         {
             fishSpawner.fishPuddleCount2--;
+            fishSpawner.fishPuddles2.Remove(gameObject);
             Destroy(gameObject);
         }
     }

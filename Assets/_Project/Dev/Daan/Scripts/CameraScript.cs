@@ -15,12 +15,14 @@ public class CameraScript: MonoBehaviour
             {
                 if(hit.collider.CompareTag("FishPuddle1"))
                 {
+                    fishSpawner.fishPuddles1.Remove(hit.collider.gameObject);
                     Destroy(hit.collider.gameObject);
                     fishSpawner.fishPuddleCount1--;
                     gameManager.score1 += 1;
                 }
                 else if(hit.collider.CompareTag("FishPuddle2"))
                 {
+                    fishSpawner.fishPuddles2.Remove(hit.collider.gameObject);
                     Destroy(hit.collider.gameObject);
                     fishSpawner.fishPuddleCount2--;
                     gameManager.score2 += 1;

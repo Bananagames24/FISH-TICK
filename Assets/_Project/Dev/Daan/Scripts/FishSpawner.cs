@@ -54,7 +54,7 @@ public class FishSpawner : MonoBehaviour
         
         if (spawnDelay2 <= 0 && fishPuddleCount2 < 10)
         {
-            fishPuddles2.Add(Instantiate(fishPuddlePrefab2, spawnPoint1, Quaternion.identity));
+            fishPuddles2.Add(Instantiate(fishPuddlePrefab2, spawnPoint2, Quaternion.identity));
             spawnDelay2 = Random.Range(0.5f, 1.5f);
             fishPuddleCount2++;
             x2 = Random.Range(-5, 5);
