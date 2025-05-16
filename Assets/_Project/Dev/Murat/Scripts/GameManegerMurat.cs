@@ -18,6 +18,7 @@ public class GameManeger : MonoBehaviour
     private bool boolCancal = true;
     private bool timerBool = true;
     private int CountDownCounter = 0;
+    public bool isUltimateActive = false;
 
     void Start()
     {

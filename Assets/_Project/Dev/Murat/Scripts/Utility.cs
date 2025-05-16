@@ -9,7 +9,7 @@ public class Utility : MonoBehaviour
     }
     public void Credits()
     {
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("CreditsMurat");
     }
     public void Quit()
     {
