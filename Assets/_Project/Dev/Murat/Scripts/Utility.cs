@@ -17,6 +17,10 @@ public class Utility : MonoBehaviour
     }
     public void Help()
     {
-       
+        SceneManager.LoadScene("HelpMurat");
+    }
+    public void ReturnToStart()
+    {
+        SceneManager.LoadScene("StartMurat");
     }
 }
