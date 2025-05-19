@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 456477864858440854}
   - component: {fileID: 7590454371996329495}
   - component: {fileID: 2682306807799907329}
-  - component: {fileID: 6177968672201723704}
   - component: {fileID: -5128614612835685485}
+  - component: {fileID: 2847660890270669160}
   m_Layer: 0
   m_Name: FishPuddle1
   m_TagString: FishPuddle1
@@ -88,8 +88,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6177968672201723704
-BoxCollider:
+--- !u!114 &-5128614612835685485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121533656203279102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab41ee659974ba5458cac843d415e7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSpawner: {fileID: 0}
+  scoreMultiplier: 1
+--- !u!135 &2847660890270669160
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,19 +121,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5128614612835685485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121533656203279102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab41ee659974ba5458cac843d415e7fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishSpawner: {fileID: 0}
-  scoreMultiplier: 1
+  m_Radius: 2
+  m_Center: {x: 0.19386399, y: 0.13542959, z: 0.072261184}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,7 +21,7 @@ public class Boat : MonoBehaviour
             agent.SetDestination(new Vector3(fishSpawner.fishPuddles1[0].transform.position.x, fishSpawner.fishPuddles1[0].transform.position.y, fishSpawner.fishPuddles1[0].transform.position.z));
         }
 
-        if (!switchSide)
+        if (!switchSide && fishSpawner.fishPuddles2 != null)
         {
             agent.SetDestination(new Vector3(fishSpawner.fishPuddles2[0].transform.position.x, fishSpawner.fishPuddles2[0].transform.position.y, fishSpawner.fishPuddles2[0].transform.position.z));
         }
