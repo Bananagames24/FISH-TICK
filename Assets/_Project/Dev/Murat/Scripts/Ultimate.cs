@@ -7,26 +7,34 @@ public class Ultimate : MonoBehaviour
 {
     [SerializeField] private UnityEngine.UI.Slider UltimateBar;
     [SerializeField] private GameObject Camera;
-    private bool isScreanshake = false;
     [SerializeField] private GameManeger gameManager;
+    [SerializeField] private Timer time;
+    [SerializeField] private float screanShake = 0.1f;
+    private bool isScreanshake = false;
     private float timeShake = 5;
     private float timer = 0;
     private bool Switch = false;
-    [SerializeField] private float screanShake = 0.1f;
-
     private void Update()
     {
         if (UltimateBar.value == UltimateBar.maxValue)
         {
-            gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 255);
+            GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 255);
         }
         else
         {
-            gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 0.5f);
+            GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 0.5f);
         }
         if (isScreanshake)
         {
             ScreanShake();
+        }
+        if (time.pause)
+        {
+            GetComponent<UnityEngine.UI.Button>().enabled = false;
+        }
+        else if(!time.pause)
+        {
+            GetComponent<UnityEngine.UI.Button>().enabled = true;
         }
     }
     public void UseUltimate()
@@ -40,23 +48,24 @@ public class Ultimate : MonoBehaviour
     }
     private void ScreanShake()
     {
+        float rand = Random.Range(-0.1f,0.1f);
         if (Switch && timer > 0.1f)
         {
             timer = 0;
-            Camera.transform.position = new Vector3(screanShake, Camera.transform.position.y, Camera.transform.position.z);
+            Camera.transform.position = new Vector3(screanShake, Camera.transform.position.y, rand);
             Switch = false;
         }
         else if(!Switch && timer >0.1f)
         {
             timer = 0;
-            Camera.transform.position = new Vector3(-screanShake, Camera.transform.position.y, Camera.transform.position.z);
+            Camera.transform.position = new Vector3(-screanShake, Camera.transform.position.y, rand);
             Switch = true;
         }
         if (timeShake <= 0)
         {
             gameManager.isUltimateActive = false;
             isScreanshake = false;
-            Camera.transform.position = new Vector3(0, Camera.transform.position.y, Camera.transform.position.z);
+            Camera.transform.position = new Vector3(0, Camera.transform.position.y, 0);
         }
         else
         {
