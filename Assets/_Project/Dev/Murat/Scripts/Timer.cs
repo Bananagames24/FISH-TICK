@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private Image uiFill;
     public int Duration;
     private int remaningDuration;
-    private bool pause;
+    public bool pause;
     [SerializeField] private GameManeger gameManeger;
     public void Beign(int second)
     {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HelpManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class HelpManager : MonoBehaviour
     private int page = 0;
     [SerializeField] private GameObject turnPage1;
     [SerializeField] private GameObject turnPage2;
+    [SerializeField] private TextMeshProUGUI Pagenumber;
     private void Start()
     {
         ThePage();
@@ -40,6 +42,7 @@ public class HelpManager : MonoBehaviour
                 helpList[i].SetActive(false);
             }
         }
+        Pagenumber.text = "" + (page+1);
     }
     public void PageTurn1()
     {

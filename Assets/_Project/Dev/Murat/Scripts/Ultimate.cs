@@ -8,6 +8,7 @@ public class Ultimate : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Slider UltimateBar;
     [SerializeField] private GameObject Camera;
     [SerializeField] private GameManeger gameManager;
+    [SerializeField] private Timer time;
     [SerializeField] private float screanShake = 0.1f;
     private bool isScreanshake = false;
     private float timeShake = 5;
@@ -17,15 +18,23 @@ public class Ultimate : MonoBehaviour
     {
         if (UltimateBar.value == UltimateBar.maxValue)
         {
-            gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 255);
+            GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 255);
         }
         else
         {
-            gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 0.5f);
+            GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 0.5f);
         }
         if (isScreanshake)
         {
             ScreanShake();
+        }
+        if (time.pause)
+        {
+            GetComponent<UnityEngine.UI.Button>().enabled = false;
+        }
+        else if(!time.pause)
+        {
+            GetComponent<UnityEngine.UI.Button>().enabled = true;
         }
     }
     public void UseUltimate()
