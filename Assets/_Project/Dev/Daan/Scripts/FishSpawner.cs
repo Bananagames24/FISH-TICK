@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class FishSpawner : MonoBehaviour
 {
+    [SerializeField] public GameObject tapEffectPrefab;
     [SerializeField] private GameObject fishPuddlePrefab1;
     [SerializeField] private GameObject fishPuddlePrefab2;
     public int fishPuddleCount1 = 0;
@@ -47,8 +48,8 @@ public class FishSpawner : MonoBehaviour
             fishPuddles1.Add(Instantiate(fishPuddlePrefab1, spawnPoint1, Quaternion.identity));
             spawnDelay1 = Random.Range(0.5f, 1.5f);
             fishPuddleCount1++;
-            x1 = Random.Range(-5, 5);
-            z1 = Random.Range(-10, -1);
+            x1 = Random.Range(-4.5f, 4.5f);
+            z1 = Random.Range(-9.5f, -1);
             spawnPoint1 = new Vector3(x1, y, z1);
         }
         
@@ -57,8 +58,8 @@ public class FishSpawner : MonoBehaviour
             fishPuddles2.Add(Instantiate(fishPuddlePrefab2, spawnPoint2, Quaternion.identity));
             spawnDelay2 = Random.Range(0.5f, 1.5f);
             fishPuddleCount2++;
-            x2 = Random.Range(-5, 5);
-            z2 = Random.Range(1, 10);
+            x2 = Random.Range(-4.5f, 4.5f);
+            z2 = Random.Range(1, 9.5f);
             spawnPoint2 = new Vector3(x2, y, z2);
         }
     }

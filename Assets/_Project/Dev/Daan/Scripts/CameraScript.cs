@@ -17,6 +17,7 @@ public class CameraScript: MonoBehaviour
                 {
                     fishSpawner.fishPuddles1.Remove(hit.collider.gameObject);
                     Destroy(hit.collider.gameObject);
+                    Instantiate(fishSpawner.tapEffectPrefab, hit.point, Quaternion.identity);
                     fishSpawner.fishPuddleCount1--;
                     gameManager.score1 += 1;
                 }
@@ -24,6 +25,7 @@ public class CameraScript: MonoBehaviour
                 {
                     fishSpawner.fishPuddles2.Remove(hit.collider.gameObject);
                     Destroy(hit.collider.gameObject);
+                    Instantiate(fishSpawner.tapEffectPrefab, hit.point, Quaternion.identity);
                     fishSpawner.fishPuddleCount2--;
                     gameManager.score2 += 1;
                 }

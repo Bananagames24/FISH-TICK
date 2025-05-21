@@ -7,12 +7,10 @@ public class FishPuddle : MonoBehaviour
     Vector3 minSize;
     Vector3 maxSize;
 
-    public float scoreMultiplier = 1f;
-
     private void Start()
     {
         fishSpawner = FindAnyObjectByType<FishSpawner>();
-        minSize = new Vector3(0.1f, 0.1f, 0.1f);
+        minSize = new Vector3(0.001f, 0.001f, 0.001f);
         maxSize = new Vector3(0.6f, 0.6f, 0.6f);
         transform.localScale = minSize;
     }
@@ -20,10 +18,7 @@ public class FishPuddle : MonoBehaviour
     private void Update()
     {
         transform.Rotate(new Vector3(0, 1, 0) * 25 * Time.deltaTime);
-        if (transform.localScale.x >= 0.4f)
-        {
-            scoreMultiplier = 2f;
-        }
+
         if(transform.localScale.x < maxSize.x)
         {
             transform.localScale += new Vector3(0.05f, 0.05f, 0.05f) * Time.deltaTime;
