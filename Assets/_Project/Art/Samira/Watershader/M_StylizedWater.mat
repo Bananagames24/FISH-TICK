@@ -110,6 +110,10 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _FoamAmount: 1
+    - _FoamCutOff: 1
+    - _FoamScale: 100
+    - _FoamSpeed: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -119,7 +123,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RefractionSpeed: 0.5
+    - _RefractionScale: 1
+    - _RefractionSpeed: 10
+    - _RefractionStrengh: 0
     - _RefrectionScale: 2
     - _RefrectionStrength: 0
     - _Smoothness: 0.5
@@ -137,6 +143,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepWater: {r: 0.23693115, g: 0.27749884, b: 0.4037735, a: 0.33333334}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShallowWater: {r: 0.4588232, g: 0.74912745, b: 0.8509804, a: 0.19607843}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
