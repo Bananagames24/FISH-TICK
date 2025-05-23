@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2001
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -42,11 +42,13 @@ Material:
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
-    - _Density: 5
+    - _Density: 1
     - _DrawOrder: 0
-    - _Offset: 1
-    - _Power: 1.44
-    m_Colors: []
+    - _Offset: 1.5
+    - _Power: 1.42
+    m_Colors:
+    - _color: {r: 0.95018184, g: 1, b: 0.76792455, a: 1}
+    - _color_2: {r: 0.95960724, g: 0.9924528, b: 0.83703095, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4310124828496583612
