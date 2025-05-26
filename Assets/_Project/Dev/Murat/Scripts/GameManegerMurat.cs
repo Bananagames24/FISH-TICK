@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,6 +14,7 @@ public class GameManeger : MonoBehaviour
     [SerializeField] private List<string> CountDownText;
     [SerializeField] private List<GameObject> uiGameObjects;
     [SerializeField] private Timer Timer;
+    [SerializeField] private List<GameObject> eelEffect;
     private float CountDowntimer = 0.3f;
     private bool CountDownBool = true;
     private bool boolCancal = true;
@@ -22,14 +24,33 @@ public class GameManeger : MonoBehaviour
 
     void Start()
     {
-        BeginCountdown();
+        //BeginCountdown();
     }
     void Update()
     {
         if (boolCancal)
         {
-            ExstendSize();
+           //ExstendSize();
         }
+
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("works");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit,Mathf.Infinity))
+            {
+                Debug.Log(hit.collider);
+                Debug.DrawLine(ray.origin, hit.collider.transform.forward, Color.green);
+            }
+            else
+            {
+                Debug.DrawLine(ray.origin,hit.collider.transform.forward, Color.red);
+                Debug.Log("no hit");
+            }
+        }
+
+
     }
     public void BeginCountdown()
     {
@@ -130,5 +151,40 @@ public class GameManeger : MonoBehaviour
             EndrezoltScreen.SetActive(false);
             players[i].Score = 0;
         }
+    }
+    public IEnumerator EelAbillity(int playerTouch)
+    {
+        Debug.Log("happend");
+        eelEffect[playerTouch].SetActive(true);
+        if (playerTouch == 0)
+        {
+            for(int i = 0; i < 2;i++)
+            {
+                uiGameObjects[i].SetActive(true);
+            }
+        }else if (playerTouch == 1)
+        {
+            for(int i = 2;i < 5;i++)
+            {
+                uiGameObjects[i].SetActive(true);
+            }
+        }
+        yield return new WaitForSeconds(2);
+        if (playerTouch == 0)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                uiGameObjects[i].SetActive(false);
+            }
+        }
+        else if (playerTouch == 1)
+        {
+            for (int i = 2; i < 5; i++)
+            {
+                uiGameObjects[i].SetActive(false);
+            }
+        }
+        eelEffect[playerTouch].SetActive(false);
+        Debug.Log("happend");
     }
 }

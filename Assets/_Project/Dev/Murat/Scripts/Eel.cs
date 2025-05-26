@@ -1,0 +1,66 @@
+using UnityEngine;
+
+public class Eel : MonoBehaviour
+{
+    private GameManeger gameManeger;
+    private bool abilityActive = true;
+    [SerializeField] private int playerInput = 0;
+    void Start()
+    {
+        gameManeger = FindObjectOfType<GameManeger>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = FindAnyObjectByType<Camera>().ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.collider);
+                if (hit.collider.CompareTag("Eel"))
+                {
+                    //Destroy(hit.collider.gameObject);
+                    EelInAction();
+                }
+            }
+        }
+        if(abilityActive)
+        {
+            if (playerInput == 0)
+            {
+                
+                if (transform.position.z > 2)
+                {
+                    StartCoroutine(gameManeger.EelAbillity(playerInput));
+                    abilityActive = false;
+                    Destroy(gameObject,3);
+                }
+            }else if (playerInput == 1)
+            {
+                
+                if (transform.position.z < -2)
+                {
+                    StartCoroutine(gameManeger.EelAbillity(playerInput));
+                    abilityActive = false;
+                    Destroy(gameObject, 3);
+                }
+            }
+        }
+    }
+    private void EelInAction()
+    {
+        abilityActive = true;
+        if (transform.position.z<0)
+        {
+            playerInput = 0;
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, 3), Time.deltaTime);
+        }
+        else
+        {
+            playerInput = 1;
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, -3), Time.deltaTime);
+        }
+    }
+}
