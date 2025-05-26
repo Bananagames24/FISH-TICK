@@ -7,19 +7,19 @@ using UnityEngine;
 public class GameManeger : MonoBehaviour
 {
     public List<Players> players;
-    public List<TextMeshProUGUI> Scores;
-    [SerializeField] private List<TextMeshProUGUI> WinLose;
-    [SerializeField] private GameObject EndrezoltScreen;
-    [SerializeField] private List<TextMeshProUGUI> CountDown;
-    [SerializeField] private List<string> CountDownText;
+    public List<TextMeshProUGUI> scores;
+    [SerializeField] private List<TextMeshProUGUI> winLose;
+    [SerializeField] private GameObject endrezoltScreen;
+    [SerializeField] private List<TextMeshProUGUI> countDown;
+    [SerializeField] private List<string> countDownText;
     [SerializeField] private List<GameObject> uiGameObjects;
-    [SerializeField] private Timer Timer;
+    [SerializeField] private Timer timer;
     [SerializeField] private List<GameObject> eelEffect;
-    private float CountDowntimer = 0.3f;
-    private bool CountDownBool = true;
+    private float countDowntimer = 0.3f;
+    private bool countDownBool = true;
     private bool boolCancal = true;
     private bool timerBool = true;
-    private int CountDownCounter = 0;
+    private int countDownCounter = 0;
     public bool isUltimateActive = false;
 
     void Start()
@@ -32,35 +32,16 @@ public class GameManeger : MonoBehaviour
         {
            //ExstendSize();
         }
-
-        if (Input.GetMouseButton(0))
-        {
-            Debug.Log("works");
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit,Mathf.Infinity))
-            {
-                Debug.Log(hit.collider);
-                Debug.DrawLine(ray.origin, hit.collider.transform.forward, Color.green);
-            }
-            else
-            {
-                Debug.DrawLine(ray.origin,hit.collider.transform.forward, Color.red);
-                Debug.Log("no hit");
-            }
-        }
-
-
     }
     public void BeginCountdown()
     {
-        CountDowntimer = 0.3f;
-        CountDownBool = true;
-        CountDownCounter = 0;
-        for (int i = 0; i < CountDown.Count; i++)
+        countDowntimer = 0.3f;
+        countDownBool = true;
+        countDownCounter = 0;
+        for (int i = 0; i < countDown.Count; i++)
         {
-            CountDown[i].text = CountDownText[CountDownCounter];
-            CountDown[i].gameObject.SetActive(true);
+            countDown[i].text = countDownText[countDownCounter];
+            countDown[i].gameObject.SetActive(true);
         }
         for (int i = 0; i < uiGameObjects.Count; i++)
         {
@@ -70,85 +51,85 @@ public class GameManeger : MonoBehaviour
     }
     private void ExstendSize()
     {
-        if (CountDownBool)
+        if (countDownBool)
         {
             if (timerBool)
             {
-                if (CountDownCounter > 3)
+                if (countDownCounter > 3)
                 {
                     CountingDown();
                 }
                 else
                 {
-                    for (int i = 0; i < CountDown.Count; i++)
+                    for (int i = 0; i < countDown.Count; i++)
                     {
-                        CountDown[i].text = CountDownText[CountDownCounter];
+                        countDown[i].text = countDownText[countDownCounter];
                     }
                     timerBool = false;
                 }
-                CountDownCounter++;
+                countDownCounter++;
             }
-            CountDowntimer += Time.deltaTime * 1.5f;
-            if (CountDowntimer >= 1)
+            countDowntimer += Time.deltaTime * 1.5f;
+            if (countDowntimer >= 1)
             {
-                CountDownBool = false;
+                countDownBool = false;
             }
         }
         else
         {
-            CountDowntimer -= Time.deltaTime * 1.5f;
-            if (CountDowntimer <= 0.3f)
+            countDowntimer -= Time.deltaTime * 1.5f;
+            if (countDowntimer <= 0.3f)
             {
-                CountDownBool = true;
+                countDownBool = true;
                 timerBool = true;
             }
         }
-        for (int i = 0; i < CountDown.Count; i++)
+        for (int i = 0; i < countDown.Count; i++)
         {
-            CountDown[i].transform.localScale = Vector3.one * CountDowntimer * 2;
+            countDown[i].transform.localScale = Vector3.one * countDowntimer * 2;
         }
     }
     private void CountingDown()
     {
         boolCancal = false;
-        for (int i = 0; i < CountDown.Count; i++)
+        for (int i = 0; i < countDown.Count; i++)
         {
-            CountDown[i].gameObject.SetActive(false);
+            countDown[i].gameObject.SetActive(false);
         }
         for(int i = 0;i < uiGameObjects.Count; i++)
         {
             uiGameObjects[i].SetActive(true);
         }
-        Timer.Beign(Timer.Duration);
+        timer.Beign(timer.Duration);
     }
     public void RevealScore()
     {
         if (players[0].Score > players[1].Score)
         {
-            WinLose[0].text = "Win";
-            WinLose[1].text = "Lose";
+            winLose[0].text = "Win";
+            winLose[1].text = "Lose";
         }
         else if (players[0].Score < players[1].Score)
         {
-            WinLose[0].text = "Lose";
-            WinLose[1].text = "Win";
+            winLose[0].text = "Lose";
+            winLose[1].text = "Win";
         }
         else
         {
-            WinLose[0].text = "Tie";
-            WinLose[1].text = "Tie";
+            winLose[0].text = "Tie";
+            winLose[1].text = "Tie";
         }
         for (int i = 0; i < players.Count; i++)
         {
-            Scores[i].text = "Your Score:" + players[i].Score;
-            EndrezoltScreen.SetActive(true);
+            scores[i].text = "Your Score:" + players[i].Score;
+            endrezoltScreen.SetActive(true);
         }
     }
     public void HideScore()
     {
         for (int i = 0; i < players.Count; i++)
         {
-            EndrezoltScreen.SetActive(false);
+            endrezoltScreen.SetActive(false);
             players[i].Score = 0;
         }
     }
@@ -158,30 +139,30 @@ public class GameManeger : MonoBehaviour
         eelEffect[playerTouch].SetActive(true);
         if (playerTouch == 0)
         {
-            for(int i = 0; i < 2;i++)
+            for(int i = 0; i < 3;i++)
             {
-                uiGameObjects[i].SetActive(true);
+                uiGameObjects[i].SetActive(false);
             }
         }else if (playerTouch == 1)
         {
-            for(int i = 2;i < 5;i++)
+            for(int i = 3;i < 6;i++)
             {
-                uiGameObjects[i].SetActive(true);
+                uiGameObjects[i].SetActive(false);
             }
         }
         yield return new WaitForSeconds(2);
         if (playerTouch == 0)
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
-                uiGameObjects[i].SetActive(false);
+                uiGameObjects[i].SetActive(true);
             }
         }
         else if (playerTouch == 1)
         {
-            for (int i = 2; i < 5; i++)
+            for (int i = 3; i < 6; i++)
             {
-                uiGameObjects[i].SetActive(false);
+                uiGameObjects[i].SetActive(true);
             }
         }
         eelEffect[playerTouch].SetActive(false);

@@ -3,8 +3,8 @@ using UnityEngine;
 public class Eel : MonoBehaviour
 {
     private GameManeger gameManeger;
-    private bool abilityActive = true;
-    [SerializeField] private int playerInput = 0;
+    private bool abilityActive = false;
+    private int playerInput;
     void Start()
     {
         gameManeger = FindObjectOfType<GameManeger>();
@@ -21,8 +21,8 @@ public class Eel : MonoBehaviour
                 Debug.Log(hit.collider);
                 if (hit.collider.CompareTag("Eel"))
                 {
-                    //Destroy(hit.collider.gameObject);
-                    EelInAction();
+                    hit.collider.enabled = false;
+                    hit.transform.GetComponent<Eel>().EelInAction(); ;
                 }
             }
         }
@@ -30,37 +30,39 @@ public class Eel : MonoBehaviour
         {
             if (playerInput == 0)
             {
-                
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, 3), Time.deltaTime);
                 if (transform.position.z > 2)
                 {
                     StartCoroutine(gameManeger.EelAbillity(playerInput));
                     abilityActive = false;
                     Destroy(gameObject,3);
+                    Debug.Log(playerInput);
                 }
             }else if (playerInput == 1)
             {
-                
+                transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, -3), Time.deltaTime);
                 if (transform.position.z < -2)
                 {
                     StartCoroutine(gameManeger.EelAbillity(playerInput));
                     abilityActive = false;
                     Destroy(gameObject, 3);
+                    Debug.Log(playerInput);
                 }
+                
             }
         }
     }
     private void EelInAction()
     {
+        Debug.Log("abilety active");
         abilityActive = true;
         if (transform.position.z<0)
         {
             playerInput = 0;
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, 3), Time.deltaTime);
         }
         else
         {
             playerInput = 1;
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, -3), Time.deltaTime);
         }
     }
 }
