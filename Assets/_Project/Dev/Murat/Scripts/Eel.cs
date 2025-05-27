@@ -22,7 +22,7 @@ public class Eel : MonoBehaviour
                 if (hit.collider.CompareTag("Eel"))
                 {
                     hit.collider.enabled = false;
-                    hit.transform.GetComponent<Eel>().EelInAction(); ;
+                    hit.transform.GetComponent<Eel>().EelInAction(); 
                 }
             }
         }
