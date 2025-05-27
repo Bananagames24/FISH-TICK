@@ -24,13 +24,13 @@ public class GameManeger : MonoBehaviour
 
     void Start()
     {
-        //BeginCountdown();
+        BeginCountdown();
     }
     void Update()
     {
         if (boolCancal)
         {
-           //ExstendSize();
+           ExstendSize();
         }
     }
     public void BeginCountdown()
