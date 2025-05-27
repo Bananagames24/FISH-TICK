@@ -8,6 +8,7 @@ TagManager:
   - FishPuddle1
   - PufferFish
   - Boat
+  - Eel
   layers:
   - Default
   - TransparentFX
