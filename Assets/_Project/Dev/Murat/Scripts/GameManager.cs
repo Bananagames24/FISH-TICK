@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         {
            ExstendSize();
         }
+
         players[0].score = score1;
         players[1].score = score2;
     }
