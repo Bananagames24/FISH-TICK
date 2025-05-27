@@ -256,6 +256,105 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1001 &321967235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22577343787411588, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800485515896549950, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_Name
+      value: P_Boat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147935016495704040, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147935016495704040, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147935016495704040, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 697797540978280203, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 321967237}
+  m_SourcePrefab: {fileID: 100100000, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+--- !u!1 &321967236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 697797540978280203, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+  m_PrefabInstance: {fileID: 321967235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &321967237
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321967236}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b26911a3ecc9bec4c923d5b6e6e054ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &362532928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,6 +610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Pufferfish
       objectReference: {fileID: 0}
+    - target: {fileID: 4124271655629283884, guid: 2fd7e0532ed6f704da001c744e8b453d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6365012019899306071, guid: 2fd7e0532ed6f704da001c744e8b453d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -570,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5445984252024884669, guid: 7957ae90cdf62634b94f36f6666dac6f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792206514626088440, guid: 7957ae90cdf62634b94f36f6666dac6f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -671,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2533017523935695923, guid: ba0220b38753e0946b95d4ec63ba6634, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -689,3 +792,4 @@ SceneRoots:
   - {fileID: 2029883137802230993}
   - {fileID: 8728686976264568281}
   - {fileID: 328281653272222507}
+  - {fileID: 321967235}
