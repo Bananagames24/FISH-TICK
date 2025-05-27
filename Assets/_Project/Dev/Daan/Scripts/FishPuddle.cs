@@ -1,27 +1,23 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FishPuddle : MonoBehaviour
 {
     [SerializeField] private FishSpawner fishSpawner;
-    Vector3 minSize;
-    Vector3 maxSize;
+    [SerializeField] float startTime;
+    [SerializeField] float endTime;
 
     private void Start()
     {
         fishSpawner = FindAnyObjectByType<FishSpawner>();
-        minSize = new Vector3(0.001f, 0.001f, 0.001f);
-        maxSize = new Vector3(0.6f, 0.6f, 0.6f);
-        transform.localScale = minSize;
+        startTime = 0;
+        endTime = 5;
     }
 
     private void Update()
     {
-        transform.Rotate(new Vector3(0, 1, 0) * 25 * Time.deltaTime);
-
-        if(transform.localScale.x < maxSize.x)
+        if(startTime < endTime)
         {
-            transform.localScale += new Vector3(0.05f, 0.05f, 0.05f) * Time.deltaTime;
+            startTime += Time.deltaTime * 1;
         }
         else if(CompareTag("FishPuddle1"))
         {

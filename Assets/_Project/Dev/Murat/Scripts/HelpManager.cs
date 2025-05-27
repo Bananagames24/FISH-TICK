@@ -8,11 +8,13 @@ public class HelpManager : MonoBehaviour
     private int page = 0;
     [SerializeField] private GameObject turnPage1;
     [SerializeField] private GameObject turnPage2;
-    [SerializeField] private TextMeshProUGUI Pagenumber;
+    [SerializeField] private TextMeshProUGUI pageNumber;
+
     private void Start()
     {
         ThePage();
     }
+
     private void ThePage()
     {
         if (page == 0)
@@ -23,6 +25,7 @@ public class HelpManager : MonoBehaviour
         {
             turnPage1.SetActive(true);
         }
+        
         if (page == helpList.Count - 1)
         {
             turnPage2.SetActive(false);
@@ -31,6 +34,7 @@ public class HelpManager : MonoBehaviour
         {
             turnPage2.SetActive(true);
         }
+        
         for (int i = 0; i < helpList.Count; i++)
         {
             if (i == page)
@@ -42,8 +46,9 @@ public class HelpManager : MonoBehaviour
                 helpList[i].SetActive(false);
             }
         }
-        Pagenumber.text = "" + (page+1);
+        pageNumber.text = "" + (page+1);
     }
+
     public void PageTurn1()
     {
         if (page != 0)

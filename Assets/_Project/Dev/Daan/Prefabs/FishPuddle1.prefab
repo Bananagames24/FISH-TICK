@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121533656203279102}
-  m_Mesh: {fileID: -7857966346099927656, guid: 1a67b2cf9cda6bc4d9227604a8ceea63, type: 3}
+  m_Mesh: {fileID: -6101138680756899647, guid: 22a331f1a22450a4189c1ed2486c70b0, type: 3}
 --- !u!23 &2682306807799907329
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -101,7 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishSpawner: {fileID: 0}
-  scoreMultiplier: 1
 --- !u!135 &2847660890270669160
 SphereCollider:
   m_ObjectHideFlags: 0

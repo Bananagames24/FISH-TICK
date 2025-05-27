@@ -1,76 +1,82 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class Ultimate : MonoBehaviour
 {
-    [SerializeField] private UnityEngine.UI.Slider UltimateBar;
+    [SerializeField] private Slider ultimateBar;
     [SerializeField] private GameObject Camera;
-    [SerializeField] private GameManeger gameManager;
-    [SerializeField] private Timer time;
-    [SerializeField] private float screanShake = 0.1f;
-    private bool isScreanshake = false;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Timer gameTimer;
+    [SerializeField] private float screenShake = 0.1f;
+    private bool isScreenShaking = false;
     private float timeShake = 5;
     private float timer = 0;
-    private bool Switch = false;
+    private bool isSwitching = false;
+
     private void Update()
     {
-        if (UltimateBar.value == UltimateBar.maxValue)
+        if (ultimateBar.value == ultimateBar.maxValue)
         {
-            GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 255);
+            GetComponent<Image>().color = new Color(255, 255, 255, 255);
         }
         else
         {
-            GetComponent<UnityEngine.UI.Image>().color = new Color(255, 255, 255, 0.5f);
+            GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
         }
-        if (isScreanshake)
+        
+        if (isScreenShaking)
         {
             ScreanShake();
         }
-        if (time.pause)
+        
+        if (gameTimer.pause)
         {
-            GetComponent<UnityEngine.UI.Button>().enabled = false;
+            GetComponent<Button>().enabled = false;
         }
-        else if(!time.pause)
+        
+        else if(!gameTimer.pause)
         {
-            GetComponent<UnityEngine.UI.Button>().enabled = true;
+            GetComponent<Button>().enabled = true;
         }
     }
+
     public void UseUltimate()
     {
-        if (!gameManager.isUltimateActive&& UltimateBar.value == UltimateBar.maxValue)
+        if (!gameManager.isUltimateActive&& ultimateBar.value == ultimateBar.maxValue)
         {
             timeShake = 5;
-            UltimateBar.value = 0;
-            isScreanshake = true;
+            ultimateBar.value = 0;
+            isScreenShaking = true;
         }
     }
     private void ScreanShake()
     {
         float rand = Random.Range(-0.1f,0.1f);
-        if (Switch && timer > 0.1f)
+        
+        if (isSwitching && timer > 0.1f)
         {
             timer = 0;
-            Camera.transform.position = new Vector3(screanShake, Camera.transform.position.y, rand);
-            Switch = false;
+            Camera.transform.position = new Vector3(screenShake, Camera.transform.position.y, rand);
+            isSwitching = false;
         }
-        else if(!Switch && timer >0.1f)
+        else if(!isSwitching && timer >0.1f)
         {
             timer = 0;
-            Camera.transform.position = new Vector3(-screanShake, Camera.transform.position.y, rand);
-            Switch = true;
+            Camera.transform.position = new Vector3(-screenShake, Camera.transform.position.y, rand);
+            isSwitching = true;
         }
+        
         if (timeShake <= 0)
         {
             gameManager.isUltimateActive = false;
-            isScreanshake = false;
+            isScreenShaking = false;
             Camera.transform.position = new Vector3(0, Camera.transform.position.y, 0);
         }
         else
         {
             gameManager.isUltimateActive = true;
         }
+        
         timer += Time.deltaTime;
         timeShake -= Time.deltaTime;
     }

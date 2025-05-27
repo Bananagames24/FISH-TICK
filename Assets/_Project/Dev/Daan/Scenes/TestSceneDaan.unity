@@ -2454,6 +2454,7 @@ MonoBehaviour:
   tapEffectPrefab: {fileID: 337919110356931153, guid: ba3ee90fd58c927478595bedd31d50ba, type: 3}
   fishPuddlePrefab1: {fileID: 121533656203279102, guid: 6ee94dd4733697c4dbedd37595ff9859, type: 3}
   fishPuddlePrefab2: {fileID: 121533656203279102, guid: 30e2c634e2a35624e8353f6cb735615e, type: 3}
+  pufferFishPrefab: {fileID: 0}
   fishPuddleCount1: 0
   spawnDelay1: 2
   fishPuddleCount2: 0
@@ -2526,6 +2527,10 @@ PrefabInstance:
     - target: {fileID: 800485515896549950, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
       propertyPath: m_Name
       value: P_Boat
+      objectReference: {fileID: 0}
+    - target: {fileID: 800485515896549950, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 800485515896549950, guid: 10c81dfe0627c374e9b311edc546e3d6, type: 3}
       propertyPath: m_TagString
@@ -4653,6 +4658,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PufferFish
       objectReference: {fileID: 0}
+    - target: {fileID: 2947514310057523884, guid: 1058cf9570611ab4b9c37650e252730a, type: 3}
+      propertyPath: m_Radius
+      value: 0.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228242135567390413, guid: 1058cf9570611ab4b9c37650e252730a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 8187795825470135561, guid: 1058cf9570611ab4b9c37650e252730a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4663,7 +4676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8187795825470135561, guid: 1058cf9570611ab4b9c37650e252730a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.98
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 8187795825470135561, guid: 1058cf9570611ab4b9c37650e252730a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4711,6 +4724,6 @@ SceneRoots:
   - {fileID: 1340879814}
   - {fileID: 1222614020}
   - {fileID: 1206315550}
-  - {fileID: 1043656398}
   - {fileID: 445376924}
   - {fileID: 3086341794241534483}
+  - {fileID: 1043656398}

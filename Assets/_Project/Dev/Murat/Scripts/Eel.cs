@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Eel : MonoBehaviour
 {
-    private GameManeger gameManeger;
+    private GameManager gameManeger;
     private bool abilityActive = false;
     private int playerInput;
+
     void Start()
     {
-        gameManeger = FindObjectOfType<GameManeger>();
+        gameManeger = FindAnyObjectByType<GameManager>();
     }
 
     private void Update()
@@ -26,6 +27,7 @@ public class Eel : MonoBehaviour
                 }
             }
         }
+
         if(abilityActive)
         {
             if (playerInput == 0)
@@ -38,7 +40,8 @@ public class Eel : MonoBehaviour
                     Destroy(gameObject,3);
                     Debug.Log(playerInput);
                 }
-            }else if (playerInput == 1)
+            }
+            else if (playerInput == 1)
             {
                 transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y, -3), Time.deltaTime);
                 if (transform.position.z < -2)
@@ -48,7 +51,6 @@ public class Eel : MonoBehaviour
                     Destroy(gameObject, 3);
                     Debug.Log(playerInput);
                 }
-                
             }
         }
     }
@@ -56,6 +58,7 @@ public class Eel : MonoBehaviour
     {
         Debug.Log("abilety active");
         abilityActive = true;
+        
         if (transform.position.z<0)
         {
             playerInput = 0;

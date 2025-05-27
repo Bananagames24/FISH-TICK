@@ -5,50 +5,55 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private Image uiFill;
-    public int Duration;
+    public int duration;
     private int remaningDuration;
     public bool pause;
-    [SerializeField] private GameManeger gameManeger;
+    [SerializeField] private GameManager gameManager;
+
     public void Beign(int second)
     {
         remaningDuration = second;
         StartCoroutine(UpdateTimer());
     }
+
     private IEnumerator UpdateTimer()
     {
         while (remaningDuration>=0)
         {
             if (!pause)
             {
-                uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remaningDuration);
+                uiFill.fillAmount = Mathf.InverseLerp(0, duration, remaningDuration);
                 remaningDuration--;
                 yield return new WaitForSeconds(1f);
             }
             yield return null;
         }
+        
         OnEnd();
     }
+
     public void Pause()
     {
         pause = !pause;
     }
+
     private void OnEnd()
     {
-        if (gameManeger.players[0].Score > gameManeger.players[1].Score)
+        if (gameManager.score1 > gameManager.score2)
         {
-            gameManeger.players[0].RoundsWon++;
-            gameManeger.RevealScore();
+            gameManager.players[0].roundsWon++;
+            gameManager.RevealScore();
         }
-        else if(gameManeger.players[0].Score < gameManeger.players[1].Score)
+        else if(gameManager.score1 < gameManager.score2)
         {
-            gameManeger.players[1].RoundsWon++;
-            gameManeger.RevealScore();
+            gameManager.players[1].roundsWon++;
+            gameManager.RevealScore();
         }
         else
         {
-            gameManeger.players[0].RoundsWon++;
-            gameManeger.players[1].RoundsWon++;
-            gameManeger.RevealScore();
+            gameManager.players[0].roundsWon++;
+            gameManager.players[1].roundsWon++;
+            gameManager.RevealScore();
         }
     }
 }

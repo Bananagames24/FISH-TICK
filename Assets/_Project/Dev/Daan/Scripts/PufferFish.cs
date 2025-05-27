@@ -13,6 +13,7 @@ public class PufferFish : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
         fishSpawner = FindAnyObjectByType<FishSpawner>();
         explosionCollider.enabled = false;
+        explosionRadius = 0f;
     }
 
     private void Update()
@@ -29,13 +30,16 @@ public class PufferFish : MonoBehaviour
                 }
             }
         } 
+
+        transform.position = new Vector3(Mathf.PingPong(Time.time, 2f) + 0.5f,transform.position.y, Mathf.PingPong(Time.time, 6f) + 0.5f);
     }
 
     void PufferFishInAction()
     {
         explosionCollider.enabled = true;
+        explosionRadius = 3f;
         explosionCollider.radius = explosionRadius;
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.2f);
     }
 
     void OnTriggerEnter(Collider other)

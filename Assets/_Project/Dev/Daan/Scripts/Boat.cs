@@ -46,7 +46,7 @@ public class Boat : MonoBehaviour
             }
         }
     }
-   
+ 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("FishPuddle1"))

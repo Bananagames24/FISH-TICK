@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] private GameObject PauseScreen;
+    [SerializeField] private GameObject pauseScreen;
+
     public void Pausing()
     {
-        PauseScreen.SetActive(true);
+        pauseScreen.SetActive(true);
         Time.timeScale = 0.0f;
     }
+
     public void UnPausing()
     {
-        PauseScreen.SetActive(false);
+        pauseScreen.SetActive(false);
         Time.timeScale = 1.0f;
     }
 }

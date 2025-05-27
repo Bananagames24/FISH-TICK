@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private Players Player;
+    [SerializeField] private Players player;
     [SerializeField] private TextMeshProUGUI scoreText;
+
     void Update()
     {
-        scoreText.text = "Score: "+Player.Score;
+        scoreText.text = "Score: "+ player.score;
     }
 }
