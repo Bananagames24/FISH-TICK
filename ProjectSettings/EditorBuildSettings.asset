@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_Project/Dev/Murat/Scenes/StartMurat.unity
+    guid: bc8ff24ed9ffee249ac25e7cb050b1b2
+  - enabled: 1
+    path: Assets/_Project/Dev/Murat/Scenes/TestSceneMurat.unity
+    guid: adc50f177bfce0141a55f1e3412a90d2
+  - enabled: 1
+    path: Assets/_Project/Dev/Murat/Scenes/CreditsMurat.unity
+    guid: 243e58403b6fdba408f3386bddec84cd
+  - enabled: 1
+    path: Assets/_Project/Dev/Murat/Scenes/HelpMurat.unity
+    guid: 50c685118cad1774ea932840aeaffa65
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4587246b42e46204d9d6f9a6c47e157e, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 9b91352730a3ba1498e44e3e4f71ce71, type: 2}
