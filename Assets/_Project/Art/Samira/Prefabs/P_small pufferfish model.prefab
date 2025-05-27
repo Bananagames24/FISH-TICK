@@ -52,9 +52,13 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4fc51e68b541c9c4fbba1a6185c0b21b, type: 2}
+    - target: {fileID: -890449133692201082, guid: e5789433660bb6c449b0bd22d1db099e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ca84e138346a3094ea2f42627895575e, type: 2}
     - target: {fileID: 919132149155446097, guid: e5789433660bb6c449b0bd22d1db099e, type: 3}
       propertyPath: m_Name
-      value: small pufferfish
+      value: P_small pufferfish model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
