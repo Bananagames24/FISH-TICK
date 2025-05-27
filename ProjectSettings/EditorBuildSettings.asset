@@ -18,6 +18,7 @@ EditorBuildSettings:
     path: Assets/_Project/Dev/Murat/Scenes/HelpMurat.unity
     guid: 50c685118cad1774ea932840aeaffa65
   m_configObjects:
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ec0efb0fb54673245b6612d824c7b21a, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4587246b42e46204d9d6f9a6c47e157e, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 9b91352730a3ba1498e44e3e4f71ce71, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
