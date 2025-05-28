@@ -9,7 +9,6 @@ TagManager:
   - PufferFish
   - Boat
   - Eel
-  tags: []
   layers:
   - Default
   - TransparentFX
@@ -18,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Camera
-  - 
+  - Boat
   - 
   - 
   - 
