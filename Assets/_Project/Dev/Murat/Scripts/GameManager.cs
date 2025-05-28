@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
         players[0].score = score1;
         players[1].score = score2;
+        scores[0].text = score1.ToString();
+        scores[1].text = score2.ToString();
     }
 
     public void BeginCountdown()

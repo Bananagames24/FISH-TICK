@@ -23,7 +23,7 @@ public class FishSpawner : MonoBehaviour
     [Header("Fish Puddle Lists")]
     public List<GameObject> fishPuddles1 = new List<GameObject>();
     public List<GameObject> fishPuddles2 = new List<GameObject>();
-    float y = 0.5f;
+    float y = -3f;
     float x1;
     float z1;
     float x2;
