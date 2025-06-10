@@ -4021,11 +4021,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810ba3e733743314cba87ab33c64e4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UltimateBar: {fileID: 922827573}
+  ultimateBar: {fileID: 0}
   Camera: {fileID: 1988924971}
   gameManager: {fileID: 2132483228}
-  time: {fileID: 1754397616}
-  screanShake: 0.1
+  gameTimer: {fileID: 0}
+  screenShake: 0.1
 --- !u!1 &1082626881
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,7 +4115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f657eff368b54744b583b69c9645c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1945667669}
+  player: {fileID: 0}
   scoreText: {fileID: 12535814}
 --- !u!1 &1142033653
 GameObject:
@@ -5029,9 +5029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0479cf09980b66744900be06c6f40e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNumber: 2
-  Score: 0
-  RoundsWon: 0
+  playerNumber: 0
+  score: 0
+  roundsWon: 0
 --- !u!4 &1502643718
 Transform:
   m_ObjectHideFlags: 0
@@ -5276,7 +5276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1587507756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5639,9 +5639,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiFill: {fileID: 580504422}
-  Duration: 60
+  duration: 0
   pause: 0
-  gameManeger: {fileID: 2132483228}
+  gameManager: {fileID: 0}
 --- !u!1 &1784052033
 GameObject:
   m_ObjectHideFlags: 0
@@ -5824,11 +5824,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810ba3e733743314cba87ab33c64e4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UltimateBar: {fileID: 1332998115}
+  ultimateBar: {fileID: 0}
   Camera: {fileID: 1988924971}
   gameManager: {fileID: 2132483228}
-  time: {fileID: 1754397616}
-  screanShake: 0.1
+  gameTimer: {fileID: 0}
+  screenShake: 0.1
 --- !u!1 &1802132635
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,9 +6070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0479cf09980b66744900be06c6f40e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNumber: 1
-  Score: 0
-  RoundsWon: 0
+  playerNumber: 0
+  score: 0
+  roundsWon: 0
 --- !u!4 &1945667670
 Transform:
   m_ObjectHideFlags: 0
@@ -6464,7 +6464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0615d829e2940ab4c9b373146d78f57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseScreen: {fileID: 1587507755}
+  pauseScreen: {fileID: 0}
 --- !u!1 &2018396123
 GameObject:
   m_ObjectHideFlags: 0
@@ -6516,7 +6516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f657eff368b54744b583b69c9645c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1502643717}
+  player: {fileID: 0}
   scoreText: {fileID: 530234582}
 --- !u!114 &2018396126
 MonoBehaviour:
@@ -6589,8 +6589,10 @@ MonoBehaviour:
   - {fileID: 1945667669}
   - {fileID: 1502643717}
   scores: []
+  score1: 0
+  score2: 0
   winLose: []
-  endrezoltScreen: {fileID: 0}
+  endResultScreen: {fileID: 0}
   countDown: []
   countDownText: []
   uiGameObjects:
