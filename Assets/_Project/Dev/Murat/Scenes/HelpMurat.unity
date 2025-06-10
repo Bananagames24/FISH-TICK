@@ -731,7 +731,7 @@ MonoBehaviour:
   - {fileID: 297913064}
   turnPage1: {fileID: 1285620974}
   turnPage2: {fileID: 179892008}
-  Pagenumber: {fileID: 1949164300}
+  pageNumber: {fileID: 1949164300}
 --- !u!4 &267745465
 Transform:
   m_ObjectHideFlags: 0
