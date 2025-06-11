@@ -5,7 +5,7 @@ public class Utility : MonoBehaviour
 {
     public void ToGame()
     {
-        SceneManager.LoadScene("TestSceneMurat");
+        SceneManager.LoadScene("AlphaScene");
     }
     public void Credits()
     {
