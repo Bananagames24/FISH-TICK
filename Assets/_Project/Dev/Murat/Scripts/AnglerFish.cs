@@ -15,46 +15,13 @@ public class AnglerFish : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = FindAnyObjectByType<Camera>().ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                Debug.Log(hit.collider);
-                if (hit.collider.CompareTag("AnglerFish"))
-                {
-                    hit.collider.enabled = false;
-                    hit.transform.GetComponent<AnglerFish>().AnglerFishAbillity();
-                }
-            }
+            ActivateAnglerFishOnMousePosition();
         }
+
         if (isActive)
         {
-
-            switch (playerSide)
-            {
-                case 0:
-                    Collider[] colliders1 = Physics.OverlapSphere(transform.position, radius);
-                    foreach (Collider collider in colliders1)
-                    {
-                        if (collider.CompareTag("FishPuddle1"))
-                        {
-                            collider.transform.GetComponent<FishPuddleMurat>().buff = true;
-                        }
-                    }
-                    break;
-                case 1:
-                    Collider[] colliders2 = Physics.OverlapSphere(transform.position, radius);
-                    foreach (Collider collider in colliders2)
-                    {
-                        if (collider.CompareTag("FishPuddle2"))
-                        {
-                            collider.transform.GetComponent<FishPuddleMurat>().buff = true;
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
+            string side = playerSide == 0 ? "FishPuddle1" : "FishPuddle2";
+            RefreshBuff(side, true);
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
@@ -64,34 +31,44 @@ public class AnglerFish : MonoBehaviour
         }
         else
         {
-            switch(playerSide)
-            {
-                case 0:
-                    Collider[] colliders1 = Physics.OverlapSphere(transform.position, radius);
-                    foreach (Collider collider in colliders1)
-                    {
-                        if (collider.CompareTag("FishPuddle1"))
-                        {
-                            collider.transform.GetComponent<FishPuddleMurat>().buff = false;
-                        }
-                    }
-                    break;
-                case 1:
-                    Collider[] colliders2 = Physics.OverlapSphere(transform.position, radius);
-                    foreach (Collider collider in colliders2)
-                    {
-                        if (collider.CompareTag("FishPuddle2"))
-                        {
-                            collider.transform.GetComponent<FishPuddleMurat>().buff = false;
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
+            string side = playerSide == 0 ? "FishPuddle1" : "FishPuddle2";
+            RefreshBuff(side, false);
         }
 
     }
+
+    private static void ActivateAnglerFishOnMousePosition()
+    {
+        Ray ray = FindAnyObjectByType<Camera>().ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider);
+            if (hit.collider.CompareTag("AnglerFish"))
+            {
+                hit.collider.enabled = false;
+                hit.transform.GetComponent<AnglerFish>().AnglerFishAbillity();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Activate the buff of all fish puddles with the specified tag within a certain radius.
+    /// </summary>
+    /// <param name="tag"> The tag of the puddles to include. </param>
+    /// <param name="activateBuff"> Wether to activate the buff or not. </param>
+    private void RefreshBuff(string tag, bool activateBuff)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag(tag))
+            {
+                collider.transform.GetComponent<FishPuddleMurat>().buff = activateBuff;
+            }
+        }
+    }
+
     private void ChoseSide()
     {
         if (transform.position.z >=0)

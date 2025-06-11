@@ -16,51 +16,39 @@ public class Boat : MonoBehaviour
     
     void Update()
     {
-        if (switchSide)
-        {
-            agent.SetDestination(new Vector3(fishSpawner.fishPuddles1[0].transform.position.x, fishSpawner.fishPuddles1[0].transform.position.y, fishSpawner.fishPuddles1[0].transform.position.z));
-        }
-
-        if (!switchSide)
-        {
-            agent.SetDestination(new Vector3(fishSpawner.fishPuddles2[0].transform.position.x, fishSpawner.fishPuddles2[0].transform.position.y, fishSpawner.fishPuddles2[0].transform.position.z));
-        }
+        GoToFirstFishFromCurrentPuddle();
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = FindAnyObjectByType<Camera>().ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.CompareTag("Boat"))
-                {
-                    if(!switchSide)
-                    {
-                        switchSide = true;
-                    }
-                    else
-                    {
-                        switchSide = false;
-                    }
-                }
-            }
+            SwitchSideOnHitBoat();
         }
     }
- 
+
+    private void GoToFirstFishFromCurrentPuddle()
+    {
+        int puddleIndex = switchSide ? 0 : 1;
+        bool hasFish = fishSpawner.GetFirstFishFromPuddle(puddleIndex, out Transform fish);
+        if (hasFish)
+        {
+            agent.SetDestination(fish.position);
+        }
+    }
+
+    private void SwitchSideOnHitBoat()
+    {
+        Ray ray = FindAnyObjectByType<Camera>().ScreenPointToRay(Input.mousePosition);
+
+        // Try to hit the boat. If we don't hit a boat, we return (do nothing).
+        if (!Physics.Raycast(ray, out RaycastHit hit) || !hit.collider.CompareTag("Boat")) return;
+
+        switchSide = !switchSide; // Make the boat switch sides.
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("FishPuddle1"))
+        if (other.gameObject.CompareTag("FishPuddle1") || other.gameObject.CompareTag("FishPuddle2"))
         {
-            fishSpawner.fishPuddles1.Remove(other.gameObject);
-            fishSpawner.fishPuddleCount1--;
-            Destroy(other.gameObject);
-        }
-
-        if (other.CompareTag("FishPuddle2"))
-        {
-            fishSpawner.fishPuddles2.Remove(other.gameObject);
-            fishSpawner.fishPuddleCount2--;
-            Destroy(other.gameObject);
+            fishSpawner.RemoveFishFromPuddleAndDestroy(other.gameObject);
         }
     }
 }
