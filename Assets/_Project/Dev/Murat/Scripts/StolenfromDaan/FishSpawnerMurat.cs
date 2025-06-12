@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
 
-public class FishSpawner : MonoBehaviour
+public class FishSpawnerMurat : MonoBehaviour
 {
     [Header("Fish Prefabs")]
     [SerializeField] public GameObject tapEffectPrefab;
@@ -79,36 +78,5 @@ public class FishSpawner : MonoBehaviour
             Debug.Log("PUFFERFISH");
             Instantiate(pufferFishPrefab, transform.parent);
         }
-    }
-
-    public bool GetFirstFishFromPuddle(int puddleIndex, out Transform fish)
-    {
-        List<GameObject> puddle = puddleIndex == 0 ? fishPuddles1 : fishPuddles2;
-        if (puddle == null || puddle.Count == 0)
-        {
-            fish = null;
-            return false;
-        }
-
-        fish = puddle[0].transform;
-        return true;
-    }
-
-    public void RemoveFishFromPuddleAndDestroy(GameObject fish)
-    {
-        // If the fish does not have the correct tag, we do nothing.
-        if (!fish.CompareTag("FishPuddle1") && !fish.CompareTag("FishPuddle2")) return;
-        
-        if (fish.CompareTag("FishPuddle1"))
-        {
-            fishPuddles1.Remove(fish);
-            fishPuddleCount1--;
-        }
-        else
-        {
-            fishPuddles2.Remove(fish);
-            fishPuddleCount2--;
-        }
-        Destroy(fish);
     }
 }
