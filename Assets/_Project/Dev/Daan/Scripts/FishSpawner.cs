@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
 
 public class FishSpawner : MonoBehaviour
 {
@@ -53,22 +52,12 @@ public class FishSpawner : MonoBehaviour
 
         if (spawnDelay1 <= 0 && fishPuddleCount1 < 10) 
         { 
-            fishPuddles1.Add(Instantiate(fishPuddlePrefab1, spawnPoint1, Quaternion.identity));
-            spawnDelay1 = Random.Range(0.5f, 1.5f);
-            fishPuddleCount1++;
-            x1 = Random.Range(-4.5f, 4.5f);
-            z1 = Random.Range(-9.5f, -1);
-            spawnPoint1 = new Vector3(x1, y, z1);
+            SpawnFishOnRandomPosition(fishPuddlePrefab1, spawnPoint1, -9.5f, -1f, fishPuddles1, true);
         }
         
         if (spawnDelay2 <= 0 && fishPuddleCount2 < 10)
         {
-            fishPuddles2.Add(Instantiate(fishPuddlePrefab2, spawnPoint2, Quaternion.identity));
-            spawnDelay2 = Random.Range(0.5f, 1.5f);
-            fishPuddleCount2++;
-            x2 = Random.Range(-4.5f, 4.5f);
-            z2 = Random.Range(1, 9.5f);
-            spawnPoint2 = new Vector3(x2, y, z2);
+            SpawnFishOnRandomPosition(fishPuddlePrefab2, spawnPoint2, 1f, 9.5f, fishPuddles2, false);
         }
     }
 
@@ -110,5 +99,28 @@ public class FishSpawner : MonoBehaviour
             fishPuddleCount2--;
         }
         Destroy(fish);
+    }
+
+    private void SpawnFishOnRandomPosition(GameObject prefab, Vector3 spawnPoint, float zMin, float zMax, List<GameObject> puddle, bool puddle1)
+    {
+        GameObject fish = Instantiate(prefab, spawnPoint, Quaternion.identity);
+        puddle.Add(fish);
+
+        x2 = Random.Range(-4.5f, 4.5f);
+        z2 = Random.Range(1, 9.5f);
+
+        if (puddle1)
+        {
+            fishPuddleCount1++;
+            spawnDelay1 = Random.Range(0.5f, 1.5f);
+            spawnPoint1 = new Vector3(x2, y, z2);
+        }
+        else
+        {
+            fishPuddleCount2++;
+            spawnDelay2 = Random.Range(0.5f, 1.5f);
+            spawnPoint2 = new Vector3(x2, y, z2);
+        }
+        
     }
 }

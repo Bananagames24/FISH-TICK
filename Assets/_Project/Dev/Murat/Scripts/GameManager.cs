@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -152,6 +151,12 @@ public class GameManager : MonoBehaviour
     public void HideScore()
     {
         endResultScreen.SetActive(false);
+    }
+
+    public void IncreaseScore(int amount, bool player1)
+    {
+        if (player1) score1 += amount;
+        else score2 += amount;
     }
 
     public IEnumerator EelAbillity(int playerTouch)
