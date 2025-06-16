@@ -5,6 +5,11 @@ public class CameraScript: MonoBehaviour
     [SerializeField] private FishSpawner fishSpawner;
     [SerializeField] private GameManager gameManager;
 
+    private void Start()
+    {
+        Input.multiTouchEnabled = false;
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
