@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     private int remaningDuration;
     public bool pause;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject pauseUI;
 
     public void Beign(int second)
     {
@@ -22,11 +23,16 @@ public class Timer : MonoBehaviour
         {
             if (!pause)
             {
+                pauseUI.SetActive(false);
                 uiFill.fillAmount = Mathf.InverseLerp(0, duration, remaningDuration);
                 remaningDuration--;
                 yield return new WaitForSeconds(1f);
             }
-            yield return null;
+            else
+            {
+                pauseUI.SetActive(true);
+            }
+                yield return null;
         }
         
         OnEnd();

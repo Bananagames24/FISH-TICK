@@ -106,14 +106,16 @@ public class FishSpawner : MonoBehaviour
         GameObject fish = Instantiate(prefab, spawnPoint, Quaternion.identity);
         puddle.Add(fish);
 
+
         x2 = Random.Range(-4.5f, 4.5f);
         z2 = Random.Range(1, 9.5f);
+        z1 = Random.Range(-9.5f, -1f);
 
         if (puddle1)
         {
             fishPuddleCount1++;
             spawnDelay1 = Random.Range(0.5f, 1.5f);
-            spawnPoint1 = new Vector3(x2, y, z2);
+            spawnPoint1 = new Vector3(x2, y, z1);
         }
         else
         {
