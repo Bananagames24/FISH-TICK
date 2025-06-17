@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     private int remaningDuration;
     public bool pause;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject pauseUI;
 
     public void Beign(int second)
     {
@@ -22,11 +23,16 @@ public class Timer : MonoBehaviour
         {
             if (!pause)
             {
+                pauseUI.SetActive(false);
                 uiFill.fillAmount = Mathf.InverseLerp(0, duration, remaningDuration);
                 remaningDuration--;
                 yield return new WaitForSeconds(1f);
             }
-            yield return null;
+            else
+            {
+                pauseUI.SetActive(true);
+            }
+                yield return null;
         }
         
         OnEnd();
@@ -39,21 +45,17 @@ public class Timer : MonoBehaviour
 
     private void OnEnd()
     {
-        if (gameManager.score1 > gameManager.score2)
+        // If the score of player 1 is higher or equal to player 2, player 1 wins the round (or its a draw).
+        if (gameManager.score1 >= gameManager.score2)
         {
             gameManager.players[0].roundsWon++;
-            gameManager.RevealScore();
         }
-        else if(gameManager.score1 < gameManager.score2)
+        // If the score of player 2 is higher or equal to player 1, player 2 wins the round (or its a draw).
+        else if (gameManager.score1 <= gameManager.score2)
         {
             gameManager.players[1].roundsWon++;
-            gameManager.RevealScore();
         }
-        else
-        {
-            gameManager.players[0].roundsWon++;
-            gameManager.players[1].roundsWon++;
-            gameManager.RevealScore();
-        }
+
+        gameManager.RevealScore();
     }
 }
