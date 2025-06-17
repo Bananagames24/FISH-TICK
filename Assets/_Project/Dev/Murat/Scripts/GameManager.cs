@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
 
     public void RevealScore()
     {
+        endResultScreen.SetActive(true);
         if (score1 > score2)
         {
             winLose[0].text = "Win";
@@ -142,15 +144,17 @@ public class GameManager : MonoBehaviour
             winLose[1].text = "Tie";
         }
         
-        for (int i = 0; i < players.Count; i++)
-        {
-            endResultScreen.SetActive(false);
-            players[i].score = 0;
-        }
+        
     }
+    
     public void HideScore()
     {
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].score = 0;
+        }
         endResultScreen.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void IncreaseScore(int amount, bool player1)
