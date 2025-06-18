@@ -6,9 +6,10 @@ public class Eel : MonoBehaviour
     private GameManager gameManeger;
     private bool abilityActive = false;
     private bool abilityDisabled = false;
-    private int playerInput;
+    public int playerInput;
     private NavMeshAgent navMeshAgent;
-    float yPos = 0.5f;
+    [SerializeField] private Animator animator;
+    float yPos = 0f;
     float xPos;
     float zPos;
     Vector3 Destination;
@@ -28,8 +29,7 @@ public class Eel : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.collider);
-                if (hit.collider.CompareTag("Eel"))
+                if (hit.collider.CompareTag("Eel"))//checks if the eel has been tapped
                 {
                     hit.collider.enabled = false;
                     hit.transform.GetComponent<Eel>().EelInAction(); 
@@ -48,7 +48,6 @@ public class Eel : MonoBehaviour
                     abilityActive = false;
                     abilityDisabled = true;
                     Destroy(gameObject,3);
-                    Debug.Log(playerInput);
                 }
             }
             else if (playerInput == 1)
@@ -60,48 +59,50 @@ public class Eel : MonoBehaviour
                     abilityActive = false;
                     abilityDisabled = true;
                     Destroy(gameObject, 3);
-                    Debug.Log(playerInput);
-                }
-            }
-        }else
-        {
-            if(abilityDisabled)
-            {
-
-            }else
-            {
-                
-                float dist = Vector3.Distance(transform.position, Destination);
-                if (dist < 1f)
-                {
-                    navMeshAgent.SetDestination(EelMovement());
-                    Debug.Log("dest");
                 }
             }
         }
+        else
+        {
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance && !abilityDisabled)
+            {
+                navMeshAgent.SetDestination(EelMovement());
+            }
+        }/*
+        if (Mathf.Abs(navMeshAgent.velocity.x+ navMeshAgent.velocity.y+ navMeshAgent.velocity.z)>=0.3f)
+        {
+            animator.Play(1);
+            animator.
+        }
+        else
+        {
+            animator.Play(0);
+        }*/
+
     }
-    private Vector3 EelMovement()
+    private Vector3 EelMovement()//what place it is going while roming on one side
     {
-        xPos = Random.Range(-3f, 3f);
+        xPos = Random.Range(-4.5f, 4.5f);
         zPos = Random.Range(-9.5f, -1);
-        if(playerInput == 0)
+
+        if (playerInput == 0)
         {
             Destination = new Vector3(xPos, yPos, zPos);
-        }else if(playerInput == 1)
+        }
+        else if (playerInput == 1)
         {
             Destination = new Vector3(xPos, yPos, -zPos);
         }
+
         return Destination;
     }
     private void EelInAction()
     {
-        Debug.Log("abilety active");
         abilityActive = true;
         
-        if (transform.position.z<0)
+        if (transform.position.z<0)//checks wat side the eel is on
         {
             playerInput = 0;
-
         }
         else
         {
