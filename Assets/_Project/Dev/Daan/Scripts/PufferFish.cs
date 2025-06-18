@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PufferFish : MonoBehaviour
 {
@@ -6,13 +7,19 @@ public class PufferFish : MonoBehaviour
     private FishSpawner fishSpawner;
     [SerializeField] private float explosionRadius;
     [SerializeField] private SphereCollider explosionCollider;
+    private Vector3 fieldPosition;
+    private NavMeshAgent navMeshAgent;
 
     private void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
         fishSpawner = FindAnyObjectByType<FishSpawner>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        fieldPosition.y = 0f;
+        fieldPosition.x = Random.Range(-4.5f, 4.5f);
+        fieldPosition.z = Random.Range(-9.5f, 9.5f);
+        navMeshAgent.SetDestination(fieldPosition);
         explosionCollider.enabled = false;
-        explosionRadius = 0f;
     }
 
     private void Update()
@@ -26,17 +33,22 @@ public class PufferFish : MonoBehaviour
                 if (hit.collider.CompareTag("PufferFish"))
                 {
                     PufferFishInAction();
+                    Instantiate(fishSpawner.pufferfishEffectPrefab, hit.point, Quaternion.identity);
                 }
             }
-        } 
+        }
 
-        transform.position = new Vector3(Mathf.PingPong(Time.time, 2f) + 0.5f,transform.position.y, Mathf.PingPong(Time.time, 6f) + 0.5f);
+        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        {
+            fieldPosition.x = Random.Range(-4.5f, 4.5f);
+            fieldPosition.z = Random.Range(-9.5f, 9.5f);
+            navMeshAgent.SetDestination(fieldPosition);
+        }
     }
 
     void PufferFishInAction()
     {
         explosionCollider.enabled = true;
-        explosionRadius = 3f;
         explosionCollider.radius = explosionRadius;
         Destroy(gameObject, 0.2f);
     }
@@ -60,6 +72,11 @@ public class PufferFish : MonoBehaviour
                 Instantiate(fishSpawner.tapEffectPrefab, other.transform.position, Quaternion.identity);
                 gameManager.score2 += 1;
                 Destroy(other.gameObject);
+            }
+            else if (other.CompareTag("PufferFish"))
+            {
+                PufferFishInAction();
+                Instantiate(fishSpawner.pufferfishEffectPrefab, other.transform.position, Quaternion.identity);
             }
         }
     }
