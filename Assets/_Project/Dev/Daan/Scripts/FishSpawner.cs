@@ -67,7 +67,8 @@ public class FishSpawner : MonoBehaviour
         if (Random.value <= pufferFishChance)
         {
             Debug.Log("PUFFERFISH");
-            Instantiate(pufferFishPrefab);
+            Vector3 position =  new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-9.5f, 9.5f));
+            Instantiate(pufferFishPrefab, position, Quaternion.identity);
         }
     }
 

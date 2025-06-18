@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fe3309c6d3fdc4da703132755d0a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 5
+  explosionRadius: 6
   explosionCollider: {fileID: 6754635286793972821}
 --- !u!195 &3138282294898881790
 NavMeshAgent:
