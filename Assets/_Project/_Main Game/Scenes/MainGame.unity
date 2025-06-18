@@ -2761,9 +2761,9 @@ MonoBehaviour:
   fishPuddlePrefab2: {fileID: 6313183734790760516, guid: 30e2c634e2a35624e8353f6cb735615e, type: 3}
   pufferFishPrefab: {fileID: 479665477555233952, guid: 8798548f1877c204ba7764ce7adda61a, type: 3}
   fishPuddleCount1: 0
-  spawnDelay1: 2
+  spawnDelay1: 1.5
   fishPuddleCount2: 0
-  spawnDelay2: 2
+  spawnDelay2: 1.5
   fishPuddles1: []
   fishPuddles2: []
 --- !u!4 &1026851027

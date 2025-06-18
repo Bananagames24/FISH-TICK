@@ -67,7 +67,7 @@ public class FishSpawner : MonoBehaviour
         if (Random.value <= pufferFishChance)
         {
             Debug.Log("PUFFERFISH");
-            Instantiate(pufferFishPrefab, transform.parent);
+            Instantiate(pufferFishPrefab);
         }
     }
 
@@ -115,13 +115,13 @@ public class FishSpawner : MonoBehaviour
         if (puddle1)
         {
             fishPuddleCount1++;
-            spawnDelay1 = Random.Range(0.5f, 1.5f);
+            spawnDelay1 = Random.Range(0.3f, 1f);
             spawnPoint1 = new Vector3(x2, y, z1);
         }
         else
         {
             fishPuddleCount2++;
-            spawnDelay2 = Random.Range(0.5f, 1.5f);
+            spawnDelay2 = Random.Range(0.3f, 1f);
             spawnPoint2 = new Vector3(x2, y, z2);
         }
         
