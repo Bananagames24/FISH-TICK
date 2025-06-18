@@ -3793,33 +3793,6 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: cbe64498b3960464392df76aaea47a03, type: 2}
   m_BuildHeightMesh: 0
---- !u!1 &1158172221 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2992643359502351957, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
-  m_PrefabInstance: {fileID: 3515151354596291140}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &1158172226
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158172221}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &1193422963
 GameObject:
   m_ObjectHideFlags: 0
@@ -5218,9 +5191,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiFill: {fileID: 580504422}
-  duration: 10
+  duration: 60
   pause: 0
   gameManager: {fileID: 2132483228}
+  pauseUI: {fileID: 1587507755}
 --- !u!1 &1784052033
 GameObject:
   m_ObjectHideFlags: 0
@@ -6429,12 +6403,8 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1106505680251202738, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1106505680251202738, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
-      propertyPath: m_IsKinematic
+    - target: {fileID: 1894617524655985118, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
+      propertyPath: playerInput
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2505076625064977647, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
@@ -6481,13 +6451,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Electric Eel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6891653761208920099, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9bff406e737069f4bb4110897624a25d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2992643359502351957, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1158172226}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
