@@ -8,6 +8,7 @@ public class Eel : MonoBehaviour
     private bool abilityDisabled = false;
     public int playerInput;
     private NavMeshAgent navMeshAgent;
+    [SerializeField] private Animator animator;
     float yPos = 0f;
     float xPos;
     float zPos;
@@ -67,7 +68,17 @@ public class Eel : MonoBehaviour
             {
                 navMeshAgent.SetDestination(EelMovement());
             }
+        }/*
+        if (Mathf.Abs(navMeshAgent.velocity.x+ navMeshAgent.velocity.y+ navMeshAgent.velocity.z)>=0.3f)
+        {
+            animator.Play(1);
+            animator.
         }
+        else
+        {
+            animator.Play(0);
+        }*/
+
     }
     private Vector3 EelMovement()//what place it is going while roming on one side
     {
