@@ -5,6 +5,7 @@ public class FishSpawner : MonoBehaviour
 {
     [Header("Fish Prefabs")]
     [SerializeField] public GameObject tapEffectPrefab;
+    [SerializeField] public GameObject pufferfishEffectPrefab;
     [SerializeField] private GameObject fishPuddlePrefab1;
     [SerializeField] private GameObject fishPuddlePrefab2;
     [SerializeField] private GameObject pufferFishPrefab;
@@ -29,7 +30,7 @@ public class FishSpawner : MonoBehaviour
 
     void Start()
     {
-        pufferFishChance = 0.1f;
+        pufferFishChance = 0.0025f;
         x1 = Random.Range(-5, 5);
         z1 = Random.Range(-10, -1);
         x2 = Random.Range(-5, 5);
@@ -63,7 +64,7 @@ public class FishSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (pufferFishChance >= Random.Range(0, 500))
+        if (Random.value <= pufferFishChance)
         {
             Debug.Log("PUFFERFISH");
             Instantiate(pufferFishPrefab, transform.parent);
