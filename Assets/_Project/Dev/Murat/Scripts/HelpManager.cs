@@ -9,6 +9,7 @@ public class HelpManager : MonoBehaviour
     [SerializeField] private GameObject turnPage1;
     [SerializeField] private GameObject turnPage2;
     [SerializeField] private TextMeshProUGUI pageNumber;
+    [SerializeField] private TextMeshProUGUI pageNumber2;
 
     private void Start()
     {
@@ -46,7 +47,8 @@ public class HelpManager : MonoBehaviour
                 helpList[i].SetActive(false);
             }
         }
-        pageNumber.text = "" + (page+1);
+        pageNumber.text = "" + (page + 1);
+        pageNumber2.text = "" + (page + 1);
     }
 
     public void PageTurn1()

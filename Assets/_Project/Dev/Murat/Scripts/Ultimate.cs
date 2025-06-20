@@ -26,7 +26,7 @@ public class Ultimate : MonoBehaviour
         
         if (isScreenShaking)
         {
-            ScreanShake();
+            ScreenShake();
         }
         
         if (gameTimer.pause)
@@ -49,7 +49,8 @@ public class Ultimate : MonoBehaviour
             isScreenShaking = true;
         }
     }
-    private void ScreanShake()
+
+    private void ScreenShake()
     {
         float rand = Random.Range(-0.1f,0.1f);
         
@@ -79,5 +80,10 @@ public class Ultimate : MonoBehaviour
         
         timer += Time.deltaTime;
         timeShake -= Time.deltaTime;
+    }
+
+    public void UltimateBuff()
+    {
+        
     }
 }

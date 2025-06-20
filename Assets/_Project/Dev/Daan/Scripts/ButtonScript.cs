@@ -18,10 +18,12 @@ public class ButtonScript : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("StartScreen");
     }
+
     public void LoadCredits()
     {
         SceneManager.LoadScene("CreditsMenu");
@@ -31,6 +33,4 @@ public class ButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene("HelpMenu");
     }
-
-
 }

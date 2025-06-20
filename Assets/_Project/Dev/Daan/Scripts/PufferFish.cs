@@ -16,8 +16,8 @@ public class PufferFish : MonoBehaviour
         fishSpawner = FindAnyObjectByType<FishSpawner>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         fieldPosition.y = 0f;
-        fieldPosition.x = Random.Range(-4.5f, 4.5f);
-        fieldPosition.z = Random.Range(-9.5f, 9.5f);
+        fieldPosition.x = Random.Range(-10f, 10f);
+        fieldPosition.z = Random.Range(-5f, 5f);
         navMeshAgent.SetDestination(fieldPosition);
         explosionCollider.enabled = false;
     }
@@ -40,8 +40,8 @@ public class PufferFish : MonoBehaviour
 
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
-            fieldPosition.x = Random.Range(-4.5f, 4.5f);
-            fieldPosition.z = Random.Range(-9.5f, 9.5f);
+            fieldPosition.x = Random.Range(-10f, 10f);
+            fieldPosition.z = Random.Range(-5f, 5f);
             navMeshAgent.SetDestination(fieldPosition);
         }
     }

@@ -26,17 +26,16 @@ public class FishSpawner : MonoBehaviour
     float x1;
     float z1;
     float x2;
-    float z2;
 
     void Start()
     {
         pufferFishChance = 0.0025f;
-        x1 = Random.Range(-5, 5);
-        z1 = Random.Range(-10, -1);
-        x2 = Random.Range(-5, 5);
-        z2 = Random.Range(1, 10);
+        x1 = Random.Range(-10, -1);
+        z1 = Random.Range(-5, 5);
+        x2 = Random.Range(1, 10);
+
         spawnPoint1 = new Vector3(x1, y, z1);
-        spawnPoint2 = new Vector3(x2, y, z2);
+        spawnPoint2 = new Vector3(x2, y, z1);
     }
 
     private void Update()
@@ -108,23 +107,21 @@ public class FishSpawner : MonoBehaviour
         GameObject fish = Instantiate(prefab, spawnPoint, Quaternion.identity);
         puddle.Add(fish);
 
-
-        x2 = Random.Range(-4.5f, 4.5f);
-        z2 = Random.Range(1, 9.5f);
-        z1 = Random.Range(-9.5f, -1f);
+        x1 = Random.Range(-10, -1);
+        z1 = Random.Range(-5, 5);
+        x2 = Random.Range(1, 10);
 
         if (puddle1)
         {
             fishPuddleCount1++;
-            spawnDelay1 = Random.Range(0.3f, 1f);
-            spawnPoint1 = new Vector3(x2, y, z1);
+            spawnDelay1 = Random.Range(0.2f, 1f);
+            spawnPoint1 = new Vector3(x1, y, z1);
         }
         else
         {
             fishPuddleCount2++;
-            spawnDelay2 = Random.Range(0.3f, 1f);
-            spawnPoint2 = new Vector3(x2, y, z2);
+            spawnDelay2 = Random.Range(0.2f, 1f);
+            spawnPoint2 = new Vector3(x2, y, z1);
         }
-        
     }
 }
