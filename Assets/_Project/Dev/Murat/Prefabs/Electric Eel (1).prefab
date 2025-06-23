@@ -162,7 +162,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: 1
-  animator: {fileID: 0}
+  elecStun: {fileID: 7480379053272042138, guid: 69597e1febc8fc1499b897f6fb63a083, type: 3}
+  arc1s:
+  - {x: -3, y: 0, z: 0}
+  - {x: -4, y: 0, z: 4.5}
+  - {x: -3, y: 0, z: 9}
+  - {x: 3, y: 0, z: 0}
+  - {x: 4, y: 0, z: 4.5}
+  - {x: 3, y: 0, z: 9}
+  arc2s:
+  - {x: -3, y: 0, z: 0}
+  - {x: -4, y: 0, z: -4.5}
+  - {x: -3, y: 0, z: -9}
+  - {x: 3, y: 0, z: 0}
+  - {x: 4, y: 0, z: -4.5}
+  - {x: 3, y: 0, z: -9}
+  temp: []
 --- !u!195 &4244976390703777003
 NavMeshAgent:
   m_ObjectHideFlags: 0

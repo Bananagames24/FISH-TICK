@@ -1,5 +1,9 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX.Utility;
 
 public class Eel : MonoBehaviour
 {
@@ -8,7 +12,10 @@ public class Eel : MonoBehaviour
     private bool abilityDisabled = false;
     public int playerInput;
     private NavMeshAgent navMeshAgent;
-    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject elecStun;
+    [SerializeField] private List<Vector3> arc1s;
+    [SerializeField] private List<Vector3> arc2s;
+    [SerializeField] private List<GameObject> temp;
     float yPos = 0f;
     float xPos;
     float zPos;
@@ -37,28 +44,50 @@ public class Eel : MonoBehaviour
             }
         }
 
-        if(abilityActive)
+        if (abilityActive)
         {
             if (playerInput == 0)
             {
-                navMeshAgent.SetDestination(new Vector3(transform.position.x, transform.position.y, 3));
+                navMeshAgent.SetDestination(new Vector3(transform.position.x, transform.position.y, 7));
                 if (transform.position.z > 2)
                 {
                     StartCoroutine(gameManeger.EelAbillity(playerInput));
+                    for (int i = 0; i < arc1s.Count; i++)
+                    {
+                        GameObject stun = Instantiate(elecStun);
+                        stun.transform.GetChild(0).transform.position = Between(transform.position, new Vector3(0, 0, 0), 0.5f);
+                        stun.transform.GetChild(1).transform.position = transform.position;
+                        stun.transform.GetChild(2).transform.position = Between(transform.position, arc1s[i], 0.3f);
+                        stun.transform.GetChild(3).transform.position = Between(transform.position, arc1s[i], 0.6f);
+                        stun.transform.GetChild(4).transform.position = arc1s[i];
+                        temp.Add(stun);
+                        Destroy(stun, 3);
+                    }
                     abilityActive = false;
                     abilityDisabled = true;
-                    Destroy(gameObject,3);
+                    Destroy(gameObject, 3);
                 }
             }
             else if (playerInput == 1)
             {
-                navMeshAgent.SetDestination(new Vector3(transform.position.x, transform.position.y, -3));
+                navMeshAgent.SetDestination(new Vector3(transform.position.x, transform.position.y, -7));
                 if (transform.position.z < -2)
                 {
                     StartCoroutine(gameManeger.EelAbillity(playerInput));
+                    for (int i = 0; i < arc2s.Count; i++)
+                    {
+                        GameObject stun = Instantiate(elecStun);
+                        stun.transform.GetChild(0).transform.position = Between(transform.position, new Vector3(0, 0, 0), 0.5f);
+                        stun.transform.GetChild(1).transform.position = transform.position;
+                        stun.transform.GetChild(2).transform.position = Between(transform.position, arc2s[i], 0.3f);
+                        stun.transform.GetChild(3).transform.position = Between(transform.position, arc2s[i], 0.6f);
+                        stun.transform.GetChild(4).transform.position = arc2s[i];
+                        temp.Add(stun);
+                        Destroy(stun, 3);
+                    }
                     abilityActive = false;
                     abilityDisabled = true;
-                    Destroy(gameObject, 3);
+                   Destroy(gameObject, 3);
                 }
             }
         }
@@ -68,17 +97,37 @@ public class Eel : MonoBehaviour
             {
                 navMeshAgent.SetDestination(EelMovement());
             }
-        }/*
-        if (Mathf.Abs(navMeshAgent.velocity.x+ navMeshAgent.velocity.y+ navMeshAgent.velocity.z)>=0.3f)
-        {
-            animator.Play(1);
-            animator.
         }
-        else
+        if (temp.Count!=null)
         {
-            animator.Play(0);
-        }*/
+            if (playerInput == 0)
+            {
+                for (int i = 0; i < temp.Count; i++)
+                {
+                    temp[i].transform.GetChild(0).transform.position = Between(transform.position, new Vector3(0, 0, 0), 0.5f);
+                    temp[i].transform.GetChild(1).transform.position = transform.position;
+                    temp[i].transform.GetChild(2).transform.position = Between(transform.position, arc1s[i], 0.3f);
+                    temp[i].transform.GetChild(3).transform.position = Between(transform.position, arc1s[i], 0.6f);
+                    temp[i].transform.GetChild(4).transform.position = arc1s[i];
+                }
+            }else if (playerInput == 1)
+            {
+                for (int i = 0; i < temp.Count; i++)
+                {
+                    temp[i].transform.GetChild(0).transform.position = Between(transform.position, new Vector3(0, 0, 0), 0.5f);
+                    temp[i].transform.GetChild(1).transform.position = transform.position;
+                    temp[i].transform.GetChild(2).transform.position = Between(transform.position, arc2s[i], 0.3f);
+                    temp[i].transform.GetChild(3).transform.position = Between(transform.position, arc2s[i], 0.6f);
+                    temp[i].transform.GetChild(4).transform.position = arc2s[i];
+                }
+            }
+  
+        }
 
+    }
+    private Vector3 Between(Vector3 a, Vector3 b,float percentage)
+    {
+        return (b - a) * percentage + a;
     }
     private Vector3 EelMovement()//what place it is going while roming on one side
     {
