@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.5f);
         
         if (playerTouch == 0)
         {
