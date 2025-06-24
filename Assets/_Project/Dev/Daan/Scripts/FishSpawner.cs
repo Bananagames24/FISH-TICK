@@ -9,6 +9,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private GameObject fishPuddlePrefab1;
     [SerializeField] private GameObject fishPuddlePrefab2;
     [SerializeField] private GameObject pufferFishPrefab;
+    [SerializeField] private GameObject eelPrefab;
 
     [Header("Fish Puddle Settings")]
     public int fishPuddleCount1 = 0;
@@ -16,6 +17,7 @@ public class FishSpawner : MonoBehaviour
     public int fishPuddleCount2 = 0;
     [SerializeField] private float spawnDelay2 = 4f;
     private float pufferFishChance = 0;
+    private float eelChance = 0;
     Vector3 spawnPoint1;
     Vector3 spawnPoint2;
 
@@ -30,6 +32,7 @@ public class FishSpawner : MonoBehaviour
     void Start()
     {
         pufferFishChance = 0.0025f;
+        eelChance = 0.0007f;
         x1 = Random.Range(-10, -1);
         z1 = Random.Range(-5, 5);
         x2 = Random.Range(1, 10);
@@ -66,8 +69,15 @@ public class FishSpawner : MonoBehaviour
         if (Random.value <= pufferFishChance)
         {
             Debug.Log("PUFFERFISH");
-            Vector3 position =  new Vector3(Random.Range(-4.5f, 4.5f), 0, Random.Range(-9.5f, 9.5f));
+            Vector3 position =  new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-5f, 5f));
             Instantiate(pufferFishPrefab, position, Quaternion.identity);
+        }
+
+        if (Random.value <= eelChance)
+        {
+            Debug.Log("EEL");
+            Vector3 position = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-5f, 5f));
+            Instantiate(eelPrefab, position, Quaternion.identity);
         }
     }
 
@@ -102,7 +112,7 @@ public class FishSpawner : MonoBehaviour
         Destroy(fish);
     }
 
-    private void SpawnFishOnRandomPosition(GameObject prefab, Vector3 spawnPoint, float zMin, float zMax, List<GameObject> puddle, bool puddle1)
+    private void SpawnFishOnRandomPosition(GameObject prefab, Vector3 spawnPoint, float xMin, float xMax, List<GameObject> puddle, bool puddle1)
     {
         GameObject fish = Instantiate(prefab, spawnPoint, Quaternion.identity);
         puddle.Add(fish);

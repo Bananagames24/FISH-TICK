@@ -48,8 +48,8 @@ public class Eel : MonoBehaviour
         {
             if (playerInput == 0)
             {
-                navMeshAgent.SetDestination(new Vector3(transform.position.x, transform.position.y, 7));
-                if (transform.position.z > 2)
+                navMeshAgent.SetDestination(new Vector3(7, transform.position.y, transform.position.z));
+                if (transform.position.x > 2)
                 {
                     StartCoroutine(gameManeger.EelAbillity(playerInput));
                     for (int i = 0; i < arc1s.Count; i++)
@@ -70,8 +70,8 @@ public class Eel : MonoBehaviour
             }
             else if (playerInput == 1)
             {
-                navMeshAgent.SetDestination(new Vector3(transform.position.x, transform.position.y, -7));
-                if (transform.position.z < -2)
+                navMeshAgent.SetDestination(new Vector3(-7, transform.position.y, transform.position.z));
+                if (transform.position.x < -2)
                 {
                     StartCoroutine(gameManeger.EelAbillity(playerInput));
                     for (int i = 0; i < arc2s.Count; i++)
@@ -131,8 +131,8 @@ public class Eel : MonoBehaviour
     }
     private Vector3 EelMovement()//what place it is going while roming on one side
     {
-        xPos = Random.Range(-4.5f, 4.5f);
-        zPos = Random.Range(-9.5f, -1);
+        xPos = Random.Range(-10f, -1f);
+        zPos = Random.Range(-5, 5);
 
         if (playerInput == 0)
         {
@@ -140,7 +140,7 @@ public class Eel : MonoBehaviour
         }
         else if (playerInput == 1)
         {
-            Destination = new Vector3(xPos, yPos, -zPos);
+            Destination = new Vector3(-xPos, yPos, zPos);
         }
 
         return Destination;
@@ -149,7 +149,7 @@ public class Eel : MonoBehaviour
     {
         abilityActive = true;
         
-        if (transform.position.z<0)//checks wat side the eel is on
+        if (transform.position.x<0)//checks wat side the eel is on
         {
             playerInput = 0;
         }
