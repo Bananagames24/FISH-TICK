@@ -6,8 +6,8 @@ public class FishSpawner : MonoBehaviour
     [Header("Fish Prefabs")]
     [SerializeField] public GameObject tapEffectPrefab;
     [SerializeField] public GameObject pufferfishEffectPrefab;
-    [SerializeField] private GameObject fishPuddlePrefab1;
-    [SerializeField] private GameObject fishPuddlePrefab2;
+    [SerializeField] public GameObject fishPuddlePrefab1;
+    [SerializeField] public GameObject fishPuddlePrefab2;
     [SerializeField] private GameObject pufferFishPrefab;
     [SerializeField] private GameObject eelPrefab;
 
@@ -18,8 +18,8 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private float spawnDelay2 = 4f;
     private float pufferFishChance = 0;
     private float eelChance = 0;
-    Vector3 spawnPoint1;
-    Vector3 spawnPoint2;
+    public Vector3 spawnPoint1;
+    public Vector3 spawnPoint2;
 
     [Header("Fish Puddle Lists")]
     public List<GameObject> fishPuddles1 = new List<GameObject>();
@@ -68,14 +68,12 @@ public class FishSpawner : MonoBehaviour
     {
         if (Random.value <= pufferFishChance)
         {
-            Debug.Log("PUFFERFISH");
             Vector3 position =  new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-5f, 5f));
             Instantiate(pufferFishPrefab, position, Quaternion.identity);
         }
 
         if (Random.value <= eelChance)
         {
-            Debug.Log("EEL");
             Vector3 position = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-5f, 5f));
             Instantiate(eelPrefab, position, Quaternion.identity);
         }
@@ -112,7 +110,7 @@ public class FishSpawner : MonoBehaviour
         Destroy(fish);
     }
 
-    private void SpawnFishOnRandomPosition(GameObject prefab, Vector3 spawnPoint, float xMin, float xMax, List<GameObject> puddle, bool puddle1)
+    public void SpawnFishOnRandomPosition(GameObject prefab, Vector3 spawnPoint, float xMin, float xMax, List<GameObject> puddle, bool puddle1)
     {
         GameObject fish = Instantiate(prefab, spawnPoint, Quaternion.identity);
         puddle.Add(fish);

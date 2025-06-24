@@ -4,6 +4,8 @@ public class CameraScript: MonoBehaviour
 {
     [SerializeField] private FishSpawner fishSpawner;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private Ultimate ultimateP1;
+    [SerializeField] private Ultimate ultimateP2;
 
     private void Start()
     {
@@ -37,5 +39,9 @@ public class CameraScript: MonoBehaviour
         // Increase the score.
         bool isPlayer1 = hit.collider.CompareTag("FishPuddle1");
         gameManager.IncreaseScore(1, isPlayer1);
+
+        ultimateP1.ultimateFillAmount += isPlayer1 ? 0.015f : 0f;
+        ultimateP2.ultimateFillAmount += isPlayer1 ? 0f : 0.015f;
+
     }
 }

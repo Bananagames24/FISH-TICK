@@ -170,14 +170,14 @@ public class GameManager : MonoBehaviour
         
         if (playerTouch == 0)
         {
-            for(int i = 0; i < 3;i++)
+            for(int i = 0; i < 2;i++)
             {
                 eelEffectUIP2[i].SetActive(false);
             }
         }
         else if (playerTouch == 1)
         {
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < 2; i++)
             {
                 eelEffectUIP1[i].SetActive(false);
             }
@@ -187,14 +187,14 @@ public class GameManager : MonoBehaviour
         
         if (playerTouch == 0)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 eelEffectUIP2[i].SetActive(true);
             }
         }
         else if (playerTouch == 1)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 eelEffectUIP1[i].SetActive(true);
             }
