@@ -108,7 +108,7 @@ public class Eel : MonoBehaviour
                 navMeshAgent.SetDestination(EelMovement());
             }
         }
-        if (temp.Count!=null)
+        if (temp.Count !< 0)
         {
             if (playerInput == 0)
             {
