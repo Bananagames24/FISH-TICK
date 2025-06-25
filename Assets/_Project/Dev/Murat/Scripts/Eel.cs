@@ -71,11 +71,11 @@ public class Eel : MonoBehaviour
                         stun.transform.GetChild(3).transform.position = Between(transform.position, arc1s[i], 0.6f);
                         stun.transform.GetChild(4).transform.position = arc1s[i];
                         temp.Add(stun);
-                        Destroy(stun, 3);
+                        Destroy(stun, 4.5f);
                     }
                     abilityActive = false;
                     abilityDisabled = true;
-                    Destroy(gameObject, 3);
+                    Destroy(gameObject, 4.5f);
                 }
             }
             else if (playerInput == 1)
@@ -93,11 +93,11 @@ public class Eel : MonoBehaviour
                         stun.transform.GetChild(3).transform.position = Between(transform.position, arc2s[i], 0.6f);
                         stun.transform.GetChild(4).transform.position = arc2s[i];
                         temp.Add(stun);
-                        Destroy(stun, 3);
+                        Destroy(stun, 4.5f);
                     }
                     abilityActive = false;
                     abilityDisabled = true;
-                   Destroy(gameObject, 3);
+                   Destroy(gameObject, 4.5f);
                 }
             }
         }

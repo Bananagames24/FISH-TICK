@@ -22,13 +22,13 @@ public class Ultimate : MonoBehaviour
     {
         ultimateBar.fillAmount = ultimateFillAmount;
 
-        if (ultimateBar.fillAmount == 1)
+        if (ultimateBar.fillAmount >= 1)
         {
-            GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            ultimateBar.color = new Color(255, 0, 0, 1); // Change color to indicate ultimate is ready
         }
         else
         {
-            GetComponent<Image>().color = new Color(255, 255, 255, 0.8f);
+            ultimateBar.color = new Color(255, 255, 255, 1); // Reset color when not ready
         }
 
         if (isScreenShaking)
