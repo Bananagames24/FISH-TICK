@@ -25,6 +25,16 @@ public class Eel : MonoBehaviour
     {
         gameManeger = FindAnyObjectByType<GameManager>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        
+        if (transform.position.x < 0)//checks wat side the eel is on
+        {
+            playerInput = 0;
+        }
+        else
+        {
+            playerInput = 1;
+        }
+        
         navMeshAgent.SetDestination(EelMovement());
     }
 
@@ -98,7 +108,7 @@ public class Eel : MonoBehaviour
                 navMeshAgent.SetDestination(EelMovement());
             }
         }
-        if (temp.Count!=null)
+        if (temp.Count !< 0)
         {
             if (playerInput == 0)
             {

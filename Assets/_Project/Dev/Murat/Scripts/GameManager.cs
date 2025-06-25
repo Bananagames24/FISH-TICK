@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public List<TextMeshProUGUI> scores;
     public int score1;
     public int score2;
+    [SerializeField] private TextMeshProUGUI score1Text;
+    [SerializeField] private TextMeshProUGUI score2Text;
     [SerializeField] private List<TextMeshProUGUI> winLose;
     [SerializeField] private GameObject endResultScreen;
     [SerializeField] private List<TextMeshProUGUI> countDown;
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
         {
            ExstendSize();
         }
+
+
 
         players[0].score = score1;
         players[1].score = score2;
@@ -127,6 +131,9 @@ public class GameManager : MonoBehaviour
 
     public void RevealScore()
     {
+        score1Text.text = score1.ToString();
+        score2Text.text = score2.ToString();
+
         endResultScreen.SetActive(true);
         if (score1 > score2)
         {
