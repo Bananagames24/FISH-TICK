@@ -60,7 +60,7 @@ public class AnglerFish : MonoBehaviour
                 navMeshAgent.SetDestination(AnglerFishMovement());
             }
         }
-        else
+        else if (navMeshAgent!=null)
         {
             navMeshAgent.SetDestination(transform.position);
         }
