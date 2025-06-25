@@ -32,8 +32,8 @@ public class FishSpawner : MonoBehaviour
 
     void Start()
     {
-        pufferFishChance = 0.0025f;
-        eelChance = 0.0007f;
+        pufferFishChance = 0.003f;
+        eelChance = 0.001f;
         x1 = Random.Range(-10, -1);
         z1 = Random.Range(-5, 5);
         x2 = Random.Range(1, 10);
@@ -123,13 +123,13 @@ public class FishSpawner : MonoBehaviour
         if (puddle1)
         {
             fishPuddleCount1++;
-            spawnDelay1 = Random.Range(0.2f, 1f);
+            spawnDelay1 = Random.Range(0.1f, 0.7f);
             spawnPoint1 = new Vector3(x1, y, z1);
         }
         else
         {
             fishPuddleCount2++;
-            spawnDelay2 = Random.Range(0.2f, 1f);
+            spawnDelay2 = Random.Range(0.1f, 0.7f);
             spawnPoint2 = new Vector3(x2, y, z1);
         }
     }
