@@ -7,6 +7,7 @@ public class CameraScript: MonoBehaviour
     [SerializeField] private Ultimate ultimateP1;
     [SerializeField] private Ultimate ultimateP2;
 
+
     private void Start()
     {
         Input.multiTouchEnabled = false;
@@ -29,6 +30,9 @@ public class CameraScript: MonoBehaviour
 
         // If we hit anything else than a fish puddle, we return (do nothing).
         if (!hit.collider.CompareTag("FishPuddle1") && !hit.collider.CompareTag("FishPuddle2")) return;
+
+        // Text +1 score on the fish puddle that was hit.
+        Instantiate(fishSpawner.scoreTextPrefab, hit.point, Quaternion.identity);
 
         // Remove the fish and destroy
         fishSpawner.RemoveFishFromPuddleAndDestroy(hit.collider.gameObject);

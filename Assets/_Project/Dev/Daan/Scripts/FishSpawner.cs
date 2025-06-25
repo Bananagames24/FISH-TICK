@@ -10,6 +10,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] public GameObject fishPuddlePrefab2;
     [SerializeField] private GameObject pufferFishPrefab;
     [SerializeField] private GameObject eelPrefab;
+    [SerializeField] public GameObject scoreTextPrefab;
 
     [Header("Fish Puddle Settings")]
     public int fishPuddleCount1 = 0;
