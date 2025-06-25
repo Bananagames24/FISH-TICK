@@ -1,14 +1,27 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class AnglerFish : MonoBehaviour
 {
     private bool isActive = false;
+    private bool deActivateAbillity = false;
     public int playerSide;
     private float radius = 3;
     private float timer = 5;
+    private NavMeshAgent navMeshAgent;
+    private float yPos = 0f;
+    private float xPos;
+    private float zPos;
+    private Vector3 Destination;
+    [SerializeField] private GameObject light;
     void Start()
     {
         ChoseSide();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.SetDestination(AnglerFishMovement());
+        light.SetActive(false);
     }
 
     void Update()
@@ -23,10 +36,15 @@ public class AnglerFish : MonoBehaviour
             string side = playerSide == 0 ? "FishPuddle1" : "FishPuddle2";
             RefreshBuff(side, true);
             timer -= Time.deltaTime;
+            if(timer <= 2&& !deActivateAbillity)
+            {
+                deActivateAbillity = true;
+                StartCoroutine(LightsFlikker());
+            }
             if (timer <= 0)
             {
                 isActive = false;
-                Destroy(gameObject, 1);
+                Destroy(gameObject);
             }
         }
         else
@@ -35,9 +53,47 @@ public class AnglerFish : MonoBehaviour
             RefreshBuff(side, false);
         }
 
+        if (!isActive&& !deActivateAbillity)
+        {
+            if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+            {
+                navMeshAgent.SetDestination(AnglerFishMovement());
+            }
+        }
+        else if (navMeshAgent!=null)
+        {
+            navMeshAgent.SetDestination(transform.position);
+        }
+    }
+    private IEnumerator LightsFlikker()
+    {
+        light.SetActive(false);
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(0.25f);
+            light.SetActive(true);
+            yield return new WaitForSeconds(0.25f);
+            light.SetActive(false);
+        }
+    }
+    private Vector3 AnglerFishMovement()//what place it is going while roming on one side
+    {
+        xPos = Random.Range(-10f, -1f);
+        zPos = Random.Range(-5, 5);
+
+        if (playerSide == 0)
+        {
+            Destination = new Vector3(xPos, yPos, zPos);
+        }
+        else if (playerSide == 1)
+        {
+            Destination = new Vector3(-xPos, yPos, zPos);
+        }
+
+        return Destination;
     }
 
-    private static void ActivateAnglerFishOnMousePosition()
+    private void ActivateAnglerFishOnMousePosition()
     {
         Ray ray = FindAnyObjectByType<Camera>().ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -83,5 +139,9 @@ public class AnglerFish : MonoBehaviour
     private void AnglerFishAbillity()
     {
         isActive = true;
+        light.SetActive(true);
+        /*
+         aimation when active
+         */
     }
 }

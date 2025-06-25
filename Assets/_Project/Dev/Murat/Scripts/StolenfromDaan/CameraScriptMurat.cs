@@ -22,7 +22,7 @@ public class CameraScriptMurat: MonoBehaviour
                   //  fishSpawner.fishPuddleCount1--;
                     if (hit.transform.GetComponent<FishPuddleMurat>().buff)
                     {
-                        gameManager.score1 += 3;
+                        gameManager.score1 += 2;
                     }
                     else
                     {
@@ -37,7 +37,7 @@ public class CameraScriptMurat: MonoBehaviour
                   //  fishSpawner.fishPuddleCount2--;
                     if (hit.transform.GetComponent<FishPuddleMurat>().buff)
                     {
-                        gameManager.score2 += 3;
+                        gameManager.score2 += 2;
                     }
                     else
                     {
