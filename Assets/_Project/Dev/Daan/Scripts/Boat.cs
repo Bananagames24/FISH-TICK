@@ -7,6 +7,7 @@ public class Boat : MonoBehaviour
     public bool switchSide = false;
     private FishSpawner fishSpawner;
     private NavMeshAgent agent;
+    private bool WhichSide;
 
     void Start()
     {
@@ -16,6 +17,15 @@ public class Boat : MonoBehaviour
     
     void Update()
     {
+        if(transform.position.x < 0)
+        {
+            WhichSide = false; // Boat is on the left side
+        }
+        else
+        {
+            WhichSide = true; // Boat is on the right side
+        }
+
         GoToFirstFishFromCurrentPuddle();
 
         if (Input.GetMouseButtonDown(0))
@@ -36,12 +46,17 @@ public class Boat : MonoBehaviour
 
     private void SwitchSideOnHitBoat()
     {
+        
         Ray ray = FindAnyObjectByType<Camera>().ScreenPointToRay(Input.mousePosition);
 
         // Try to hit the boat. If we don't hit a boat, we return (do nothing).
         if (!Physics.Raycast(ray, out RaycastHit hit) || !hit.collider.CompareTag("Boat")) return;
 
-        switchSide = !switchSide; // Make the boat switch sides.
+        // Only switch side if the boat is actually on the other side
+        if ((WhichSide == false && switchSide) || (WhichSide == true && !switchSide))
+        {
+            switchSide = !switchSide; // Make the boat switch sides.
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -49,6 +64,16 @@ public class Boat : MonoBehaviour
         if (other.gameObject.CompareTag("FishPuddle1") || other.gameObject.CompareTag("FishPuddle2"))
         {
             fishSpawner.RemoveFishFromPuddleAndDestroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("PufferFish"))
+        {
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Eel"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }
