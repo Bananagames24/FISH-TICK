@@ -7,7 +7,9 @@ public class HelpManager : MonoBehaviour
     [SerializeField] private List<GameObject> helpList;
     private int page = 0;
     [SerializeField] private GameObject turnPage1;
+    [SerializeField] private GameObject turnPage1_;
     [SerializeField] private GameObject turnPage2;
+    [SerializeField] private GameObject turnPage2_;
     [SerializeField] private TextMeshProUGUI pageNumber;
     [SerializeField] private TextMeshProUGUI pageNumber2;
 
@@ -21,19 +23,23 @@ public class HelpManager : MonoBehaviour
         if (page == 0)
         {
             turnPage1.SetActive(false);
+            turnPage2_.SetActive(false);
         }
         else
         {
             turnPage1.SetActive(true);
+            turnPage2_.SetActive(true);
         }
         
         if (page == helpList.Count - 1)
         {
             turnPage2.SetActive(false);
+            turnPage1_.SetActive(false);
         }
         else
         {
             turnPage2.SetActive(true);
+            turnPage1_.SetActive(true);
         }
         
         for (int i = 0; i < helpList.Count; i++)

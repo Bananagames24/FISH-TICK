@@ -1950,7 +1950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &259126906
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6044,9 +6044,10 @@ MonoBehaviour:
   helpList:
   - {fileID: 257930891}
   - {fileID: 1085972018}
-  - {fileID: 259126905}
   turnPage1: {fileID: 536778776}
-  turnPage2: {fileID: 194748780}
+  turnPage1_: {fileID: 194748780}
+  turnPage2: {fileID: 1099330405}
+  turnPage2_: {fileID: 933329752}
   pageNumber: {fileID: 2015239973}
   pageNumber2: {fileID: 508816775}
 --- !u!4 &800779619
