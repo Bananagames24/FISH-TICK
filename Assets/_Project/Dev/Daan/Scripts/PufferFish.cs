@@ -20,6 +20,7 @@ public class PufferFish : MonoBehaviour
         fieldPosition.z = Random.Range(-5f, 5f);
         navMeshAgent.SetDestination(fieldPosition);
         explosionCollider.enabled = false;
+        Destroy(gameObject, 10f); // Destroy the PufferFish after 10 seconds if not tapped
     }
 
     private void Update()
@@ -62,6 +63,7 @@ public class PufferFish : MonoBehaviour
                 fishSpawner.fishPuddles1.Remove(other.gameObject);
                 fishSpawner.fishPuddleCount1--;
                 Instantiate(fishSpawner.tapEffectPrefab, other.transform.position, Quaternion.identity);
+                Instantiate(fishSpawner.scoreTextPrefab, other.transform.position, Quaternion.identity);
                 gameManager.score1 += 1;
                 Destroy(other.gameObject);
             }
@@ -70,6 +72,7 @@ public class PufferFish : MonoBehaviour
                 fishSpawner.fishPuddles2.Remove(other.gameObject);
                 fishSpawner.fishPuddleCount2--;
                 Instantiate(fishSpawner.tapEffectPrefab, other.transform.position, Quaternion.identity);
+                Instantiate(fishSpawner.scoreTextPrefab, other.transform.position, Quaternion.identity);
                 gameManager.score2 += 1;
                 Destroy(other.gameObject);
             }
