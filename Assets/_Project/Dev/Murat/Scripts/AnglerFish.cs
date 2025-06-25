@@ -21,6 +21,7 @@ public class AnglerFish : MonoBehaviour
         ChoseSide();
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.SetDestination(AnglerFishMovement());
+        light.SetActive(false);
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class AnglerFish : MonoBehaviour
             if (timer <= 0)
             {
                 isActive = false;
-                Destroy(gameObject, 1f);
+                Destroy(gameObject);
             }
         }
         else
@@ -66,12 +67,13 @@ public class AnglerFish : MonoBehaviour
     }
     private IEnumerator LightsFlikker()
     {
+        light.SetActive(false);
         for (int i = 0; i < 3; i++)
         {
-            light.SetActive(false);
             yield return new WaitForSeconds(0.25f);
             light.SetActive(true);
             yield return new WaitForSeconds(0.25f);
+            light.SetActive(false);
         }
     }
     private Vector3 AnglerFishMovement()//what place it is going while roming on one side
@@ -140,7 +142,6 @@ public class AnglerFish : MonoBehaviour
         light.SetActive(true);
         /*
          aimation when active
-         instantiate light
          */
     }
 }
