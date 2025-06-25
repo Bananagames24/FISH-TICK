@@ -13,9 +13,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] public GameObject scoreTextPrefab;
 
     [Header("Fish Puddle Settings")]
-    public int fishPuddleCount1 = 0;
     [SerializeField] private float spawnDelay1 = 4f;
-    public int fishPuddleCount2 = 0;
     [SerializeField] private float spawnDelay2 = 4f;
     private float pufferFishChance = 0;
     private float eelChance = 0;
@@ -54,12 +52,12 @@ public class FishSpawner : MonoBehaviour
             spawnDelay2 -= Time.deltaTime;
         }
 
-        if (spawnDelay1 <= 0 && fishPuddleCount1 < 10) 
+        if (spawnDelay1 <= 0 && fishPuddles1.Count < 10) 
         { 
             SpawnFishOnRandomPosition(fishPuddlePrefab1, spawnPoint1, -9.5f, -1f, fishPuddles1, true);
         }
         
-        if (spawnDelay2 <= 0 && fishPuddleCount2 < 10)
+        if (spawnDelay2 <= 0 && fishPuddles2.Count < 10)
         {
             SpawnFishOnRandomPosition(fishPuddlePrefab2, spawnPoint2, 1f, 9.5f, fishPuddles2, false);
         }
@@ -101,12 +99,10 @@ public class FishSpawner : MonoBehaviour
         if (fish.CompareTag("FishPuddle1"))
         {
             fishPuddles1.Remove(fish);
-            fishPuddleCount1--;
         }
         else
         {
             fishPuddles2.Remove(fish);
-            fishPuddleCount2--;
         }
         Destroy(fish);
     }
@@ -122,13 +118,11 @@ public class FishSpawner : MonoBehaviour
 
         if (puddle1)
         {
-            fishPuddleCount1++;
             spawnDelay1 = Random.Range(0.1f, 0.7f);
             spawnPoint1 = new Vector3(x1, y, z1);
         }
         else
         {
-            fishPuddleCount2++;
             spawnDelay2 = Random.Range(0.1f, 0.7f);
             spawnPoint2 = new Vector3(x2, y, z1);
         }

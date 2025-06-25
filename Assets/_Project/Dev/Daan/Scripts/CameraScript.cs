@@ -44,8 +44,8 @@ public class CameraScript: MonoBehaviour
         bool isPlayer1 = hit.collider.CompareTag("FishPuddle1");
         gameManager.IncreaseScore(1, isPlayer1);
 
-        ultimateP1.ultimateFillAmount += isPlayer1 ? 0.015f : 0f;
-        ultimateP2.ultimateFillAmount += isPlayer1 ? 0f : 0.015f;
+        ultimateP1.ultimateFillAmount += isPlayer1 ? 0.02f : 0f;
+        ultimateP2.ultimateFillAmount += isPlayer1 ? 0f : 0.02f;
 
     }
 }

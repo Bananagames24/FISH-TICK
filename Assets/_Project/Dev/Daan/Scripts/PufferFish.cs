@@ -61,7 +61,6 @@ public class PufferFish : MonoBehaviour
             if (other.CompareTag("FishPuddle1"))
             {
                 fishSpawner.fishPuddles1.Remove(other.gameObject);
-                fishSpawner.fishPuddleCount1--;
                 Instantiate(fishSpawner.tapEffectPrefab, other.transform.position, Quaternion.identity);
                 Instantiate(fishSpawner.scoreTextPrefab, other.transform.position, Quaternion.identity);
                 gameManager.score1 += 1;
@@ -70,7 +69,6 @@ public class PufferFish : MonoBehaviour
             else if (other.CompareTag("FishPuddle2"))
             {
                 fishSpawner.fishPuddles2.Remove(other.gameObject);
-                fishSpawner.fishPuddleCount2--;
                 Instantiate(fishSpawner.tapEffectPrefab, other.transform.position, Quaternion.identity);
                 Instantiate(fishSpawner.scoreTextPrefab, other.transform.position, Quaternion.identity);
                 gameManager.score2 += 1;

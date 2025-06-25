@@ -106,7 +106,7 @@ public class Ultimate : MonoBehaviour
         {
             for (int i = 0; i < 100;)
             {
-                fishSpawner.SpawnFishOnRandomPosition(fishSpawner.fishPuddlePrefab2, fishSpawner.spawnPoint2, -9.5f, -1f, fishSpawner.fishPuddles2, true);
+                fishSpawner.SpawnFishOnRandomPosition(fishSpawner.fishPuddlePrefab2, fishSpawner.spawnPoint2, 9.5f, 1f, fishSpawner.fishPuddles2, false);
                 yield return new WaitForSeconds(0.07f);
                 i++;
             }
