@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> uiGameObjects;
     [SerializeField] private Timer timer;
     [SerializeField] private List<GameObject> eelEffect;
-    [SerializeField] private List<GameObject> eelEffectUIP1;
-    [SerializeField] private List<GameObject> eelEffectUIP2;
+    [SerializeField] private GameObject eelEffectUIP1;
+    [SerializeField] private GameObject eelEffectUIP2;
     private float countDownTimer = 0.3f;
     private bool countDownBool = true;
     private bool boolCancel = true;
@@ -172,42 +172,28 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator EelAbillity(int playerTouch)
     {
-        Debug.Log("happend");
         eelEffect[playerTouch].SetActive(true);
         
         if (playerTouch == 0)
         {
-            for(int i = 0; i < 2;i++)
-            {
-                eelEffectUIP2[i].SetActive(false);
-            }
+            eelEffectUIP2.SetActive(false);
         }
         else if (playerTouch == 1)
         {
-            for(int i = 0; i < 2; i++)
-            {
-                eelEffectUIP1[i].SetActive(false);
-            }
+            eelEffectUIP1.SetActive(false);
         }
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4f);
         
         if (playerTouch == 0)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                eelEffectUIP2[i].SetActive(true);
-            }
+            eelEffectUIP2.SetActive(true);
         }
         else if (playerTouch == 1)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                eelEffectUIP1[i].SetActive(true);
-            }
+            eelEffectUIP1.SetActive(true);
         }
         
         eelEffect[playerTouch].SetActive(false);
-        Debug.Log("happend");
     }
 }
