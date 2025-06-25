@@ -20,6 +20,7 @@ public class PufferFish : MonoBehaviour
         fieldPosition.z = Random.Range(-5f, 5f);
         navMeshAgent.SetDestination(fieldPosition);
         explosionCollider.enabled = false;
+        Destroy(gameObject, 10f); // Destroy the PufferFish after 10 seconds if not tapped
     }
 
     private void Update()
