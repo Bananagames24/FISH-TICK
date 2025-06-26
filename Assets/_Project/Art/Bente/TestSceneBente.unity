@@ -3628,8 +3628,11 @@ MonoBehaviour:
   ultimateBar: {fileID: 0}
   Camera: {fileID: 0}
   gameManager: {fileID: 0}
+  fishSpawner: {fileID: 0}
   gameTimer: {fileID: 0}
   screenShake: 0.1
+  ultimateFillAmount: 0
+  player: 0
 --- !u!114 &1047842723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6160,8 +6163,11 @@ MonoBehaviour:
   ultimateBar: {fileID: 0}
   Camera: {fileID: 0}
   gameManager: {fileID: 0}
+  fishSpawner: {fileID: 0}
   gameTimer: {fileID: 0}
   screenShake: 0.1
+  ultimateFillAmount: 0
+  player: 0
 --- !u!114 &1718820606
 MonoBehaviour:
   m_ObjectHideFlags: 0
