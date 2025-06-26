@@ -24,7 +24,7 @@ public class Ultimate : MonoBehaviour
 
         if (ultimateBar.fillAmount >= 1)
         {
-            ultimateBar.color = new Color(255, 0, 0, 1); // Change color to indicate ultimate is ready
+            ultimateBar.color = new Color(117,230,196, 1); // Change color to indicate ultimate is ready
         }
         else
         {
@@ -95,19 +95,19 @@ public class Ultimate : MonoBehaviour
     {
         if (!player)
         {
-            for (int i = 0; i < 100;)
+            for (int i = 0; i < 60;)
             {
                 fishSpawner.SpawnFishOnRandomPosition(fishSpawner.fishPuddlePrefab1, fishSpawner.spawnPoint1, -9.5f, -1f, fishSpawner.fishPuddles1, true);
-                yield return new WaitForSeconds(0.07f);
+                yield return new WaitForSeconds(0.1f);
                 i++;
             }
         }
         else
         {
-            for (int i = 0; i < 100;)
+            for (int i = 0; i < 60;)
             {
                 fishSpawner.SpawnFishOnRandomPosition(fishSpawner.fishPuddlePrefab2, fishSpawner.spawnPoint2, 9.5f, 1f, fishSpawner.fishPuddles2, false);
-                yield return new WaitForSeconds(0.07f);
+                yield return new WaitForSeconds(0.1f);
                 i++;
             }
         }

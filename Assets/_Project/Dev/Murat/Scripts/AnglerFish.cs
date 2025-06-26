@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -8,22 +9,24 @@ public class AnglerFish : MonoBehaviour
     private bool isActive = false;
     private bool deActivateAbillity = false;
     public int playerSide;
-    private float radius = 3;
+    private float radius = 4.5f;
     private float timer = 5;
     private NavMeshAgent navMeshAgent;
     private float yPos = 0f;
     private float xPos;
     private float zPos;
-    private Vector3 Destination;
-    [SerializeField] private GameObject light;
+    private Vector3 destination;
+    [SerializeField] private GameObject anglerFishLight;
+
     void Start()
     {
-        ChoseSide();
+        ChooseSide();
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.SetDestination(AnglerFishMovement());
-        light.SetActive(false);
-    }
+        anglerFishLight.SetActive(false);
 
+    }
+ 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -39,7 +42,7 @@ public class AnglerFish : MonoBehaviour
             if(timer <= 2&& !deActivateAbillity)
             {
                 deActivateAbillity = true;
-                StartCoroutine(LightsFlikker());
+                StartCoroutine(LightsFlicker());
             }
             if (timer <= 0)
             {
@@ -65,32 +68,34 @@ public class AnglerFish : MonoBehaviour
             navMeshAgent.SetDestination(transform.position);
         }
     }
-    private IEnumerator LightsFlikker()
+
+    private IEnumerator LightsFlicker()
     {
-        light.SetActive(false);
+        anglerFishLight.SetActive(false);
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.25f);
-            light.SetActive(true);
+            anglerFishLight.SetActive(true);
             yield return new WaitForSeconds(0.25f);
-            light.SetActive(false);
+            anglerFishLight.SetActive(false);
         }
     }
-    private Vector3 AnglerFishMovement()//what place it is going while roming on one side
+
+    private Vector3 AnglerFishMovement()//what place it is going while roaming on one side
     {
         xPos = Random.Range(-10f, -1f);
         zPos = Random.Range(-5, 5);
 
         if (playerSide == 0)
         {
-            Destination = new Vector3(xPos, yPos, zPos);
+            destination = new Vector3(xPos, yPos, zPos);
         }
         else if (playerSide == 1)
         {
-            Destination = new Vector3(-xPos, yPos, zPos);
+            destination = new Vector3(-xPos, yPos, zPos);
         }
 
-        return Destination;
+        return destination;
     }
 
     private void ActivateAnglerFishOnMousePosition()
@@ -99,7 +104,6 @@ public class AnglerFish : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider);
             if (hit.collider.CompareTag("AnglerFish"))
             {
                 hit.collider.enabled = false;
@@ -116,18 +120,19 @@ public class AnglerFish : MonoBehaviour
     private void RefreshBuff(string tag, bool activateBuff)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag(tag))
             {
-                collider.transform.GetComponent<FishPuddleMurat>().buff = activateBuff;
+                collider.gameObject.GetComponent<FishPuddle>().buff = activateBuff;
             }
         }
     }
 
-    private void ChoseSide()
+    private void ChooseSide()
     {
-        if (transform.position.z >=0)
+        if (transform.position.x >= 0)
         {
             playerSide = 1;
         }
@@ -136,10 +141,11 @@ public class AnglerFish : MonoBehaviour
             playerSide = 0;
         }
     }
+
     private void AnglerFishAbillity()
     {
         isActive = true;
-        light.SetActive(true);
+        anglerFishLight.SetActive(true);
         /*
          aimation when active
          */

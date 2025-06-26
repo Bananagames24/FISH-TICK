@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSide: 0
-  light: {fileID: 5754737957989225096}
+  anglerFishLight: {fileID: 5754737957989225096}
 --- !u!195 &6853803912292143871
 NavMeshAgent:
   m_ObjectHideFlags: 0

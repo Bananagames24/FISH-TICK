@@ -1274,9 +1274,10 @@ MonoBehaviour:
   fishPuddlePrefab2: {fileID: 6313183734790760516, guid: 30e2c634e2a35624e8353f6cb735615e, type: 3}
   pufferFishPrefab: {fileID: 479665477555233952, guid: 8798548f1877c204ba7764ce7adda61a, type: 3}
   eelPrefab: {fileID: 2992643359502351957, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
-  fishPuddleCount1: 0
+  anglerFishPrefab: {fileID: 5480837671032763043, guid: c341cfff52a173440805771cc3b8a551, type: 3}
+  scoreTextPrefab: {fileID: 4107431990607391758, guid: 4ae10303f2e82644c87b77abfd608579, type: 3}
+  scoreTextPrefab2x: {fileID: 4107431990607391758, guid: 0bc8ec51830f04e41ace3f5247f7ff2f, type: 3}
   spawnDelay1: 1.5
-  fishPuddleCount2: 0
   spawnDelay2: 1.5
   spawnPoint1: {x: 0, y: 0, z: 0}
   spawnPoint2: {x: 0, y: 0, z: 0}
@@ -3960,6 +3961,8 @@ MonoBehaviour:
   - {fileID: 67694601}
   score1: 0
   score2: 0
+  score1Text: {fileID: 0}
+  score2Text: {fileID: 0}
   winLose:
   - {fileID: 1362481601}
   - {fileID: 372886968}
@@ -3981,12 +3984,8 @@ MonoBehaviour:
   eelEffect:
   - {fileID: 469682151}
   - {fileID: 1823018636}
-  eelEffectUIP1:
-  - {fileID: 827340146}
-  - {fileID: 1543425530}
-  eelEffectUIP2:
-  - {fileID: 2104702256}
-  - {fileID: 1807063122}
+  eelEffectUIP1: {fileID: 0}
+  eelEffectUIP2: {fileID: 0}
   isUltimateActive: 0
 --- !u!4 &1728183555
 Transform:
