@@ -3,8 +3,11 @@ using UnityEngine;
 public class FishPuddle : MonoBehaviour
 {
     [SerializeField] private FishSpawner fishSpawner;
+    [SerializeField] private SphereCollider sphereCollider;
+    [SerializeField] private GameObject insideFish;
     [SerializeField] float startTime;
     [SerializeField] float endTime;
+    public bool buff = false;
 
     private void Start()
     {
@@ -15,7 +18,9 @@ public class FishPuddle : MonoBehaviour
 
     private void Update()
     {
-        if(startTime < endTime)
+        sphereCollider.center = insideFish.transform.localPosition;
+
+        if (startTime < endTime)
         {
             startTime += Time.deltaTime * 1;
         }
@@ -24,7 +29,7 @@ public class FishPuddle : MonoBehaviour
             fishSpawner.fishPuddles1.Remove(gameObject);
             Destroy(gameObject);
         }
-        else if (CompareTag("FishPuddle2"))
+        else
         {
             fishSpawner.fishPuddles2.Remove(gameObject);
             Destroy(gameObject);

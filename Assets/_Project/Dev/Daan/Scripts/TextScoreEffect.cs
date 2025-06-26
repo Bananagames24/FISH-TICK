@@ -13,6 +13,6 @@ public class TextScoreEffect : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(90, 0, -90);
         }
-        Destroy(gameObject, 0.3f); // Destroy the game object after 3 seconds
+        Destroy(gameObject, 0.3f); // Destroy the game object after 0.3 seconds
     }
 }

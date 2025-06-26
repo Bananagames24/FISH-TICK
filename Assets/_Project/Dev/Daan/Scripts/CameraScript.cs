@@ -8,6 +8,7 @@ public class CameraScript: MonoBehaviour
     [SerializeField] private Ultimate ultimateP2;
 
 
+
     private void Start()
     {
         Input.multiTouchEnabled = false;
@@ -31,6 +32,11 @@ public class CameraScript: MonoBehaviour
         // If we hit anything else than a fish puddle, we return (do nothing).
         if (!hit.collider.CompareTag("FishPuddle1") && !hit.collider.CompareTag("FishPuddle2")) return;
 
+        if(hit.collider.GetComponent<FishPuddle>().buff)
+        {
+            // Text +1 score on the fish puddle that was hit.
+            Instantiate(fishSpawner.scoreTextPrefab2x, hit.point, Quaternion.identity);
+        }
         // Text +1 score on the fish puddle that was hit.
         Instantiate(fishSpawner.scoreTextPrefab, hit.point, Quaternion.identity);
 
@@ -42,7 +48,15 @@ public class CameraScript: MonoBehaviour
 
         // Increase the score.
         bool isPlayer1 = hit.collider.CompareTag("FishPuddle1");
-        gameManager.IncreaseScore(1, isPlayer1);
+        if (hit.transform.GetComponent<FishPuddle>().buff)
+        {
+            gameManager.IncreaseScore(2, isPlayer1);
+        }
+        else
+        {
+            gameManager.IncreaseScore(1, isPlayer1);
+        }
+        
 
         ultimateP1.ultimateFillAmount += isPlayer1 ? 0.02f : 0f;
         ultimateP2.ultimateFillAmount += isPlayer1 ? 0f : 0.02f;
