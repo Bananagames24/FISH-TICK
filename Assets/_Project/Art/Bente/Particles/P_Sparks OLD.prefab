@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5304547304308912727}
   - component: {fileID: 7340783196002031433}
   m_Layer: 0
-  m_Name: P_Sparks
+  m_Name: P_Sparks OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.056548666
       minScalar: 0
       maxCurve:
         serializedVersion: 2
