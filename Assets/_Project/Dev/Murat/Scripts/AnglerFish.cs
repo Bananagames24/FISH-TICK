@@ -26,7 +26,7 @@ public class AnglerFish : MonoBehaviour
         anglerFishLight.SetActive(false);
 
     }
- 
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -46,6 +46,7 @@ public class AnglerFish : MonoBehaviour
             }
             if (timer <= 0)
             {
+                RefreshBuff(side, false);
                 isActive = false;
                 Destroy(gameObject);
             }
