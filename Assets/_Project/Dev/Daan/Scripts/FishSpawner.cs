@@ -10,13 +10,16 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] public GameObject fishPuddlePrefab2;
     [SerializeField] private GameObject pufferFishPrefab;
     [SerializeField] private GameObject eelPrefab;
+    [SerializeField] private GameObject anglerFishPrefab;
     [SerializeField] public GameObject scoreTextPrefab;
+    [SerializeField] public GameObject scoreTextPrefab2x;
 
     [Header("Fish Puddle Settings")]
     [SerializeField] private float spawnDelay1 = 4f;
     [SerializeField] private float spawnDelay2 = 4f;
     private float pufferFishChance = 0;
     private float eelChance = 0;
+    private float anglerFishChance = 0;
     public Vector3 spawnPoint1;
     public Vector3 spawnPoint2;
 
@@ -32,6 +35,7 @@ public class FishSpawner : MonoBehaviour
     {
         pufferFishChance = 0.003f;
         eelChance = 0.001f;
+        anglerFishChance = 0.001f;
         x1 = Random.Range(-10, -1);
         z1 = Random.Range(-5, 5);
         x2 = Random.Range(1, 10);
@@ -75,6 +79,12 @@ public class FishSpawner : MonoBehaviour
         {
             Vector3 position = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-5f, 5f));
             Instantiate(eelPrefab, position, Quaternion.identity);
+        }
+
+        if (Random.value <= anglerFishChance)
+        {
+            Vector3 position = new Vector3(Random.Range(-10f, 10f), 0, Random.Range(-5f, 5f));
+            Instantiate(anglerFishPrefab, position, Quaternion.identity);
         }
     }
 

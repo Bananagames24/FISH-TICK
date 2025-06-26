@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7884517609042739395}
   - component: {fileID: 6925217147011197954}
+  - component: {fileID: 900103539516302186}
   m_Layer: 0
   m_Name: FishPuddle2
   m_TagString: FishPuddle2
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6313183734790760516}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: -4, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.45000002, y: 0.45000002, z: 0.45000002}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -46,8 +47,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishSpawner: {fileID: 0}
+  sphereCollider: {fileID: 900103539516302186}
+  insideFish: {fileID: 9088668085787369575}
   startTime: 0
   endTime: 0
+  buff: 0
+--- !u!135 &900103539516302186
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313183734790760516}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9088668085787369575
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,9 +319,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5341501644707787397, guid: a9d707bcf2c687143979a1d5abff96b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8695979181821789589}
-    - targetCorrespondingSourceObject: {fileID: 5341501644707787397, guid: a9d707bcf2c687143979a1d5abff96b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3674633041049071444}
   m_SourcePrefab: {fileID: 100100000, guid: a9d707bcf2c687143979a1d5abff96b9, type: 3}
 --- !u!1 &1693928043821849231 stripped
 GameObject:
@@ -325,27 +347,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!135 &3674633041049071444
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693928043821849231}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2074429038065254453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4713865689562654783, guid: a9d707bcf2c687143979a1d5abff96b9, type: 3}
