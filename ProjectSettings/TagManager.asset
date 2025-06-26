@@ -10,6 +10,7 @@ TagManager:
   - Boat
   - Eel
   - AnglerFish
+  - Wauw camera
   layers:
   - Default
   - TransparentFX
