@@ -1,4 +1,5 @@
 using System;
+using System.Security;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,8 @@ public class Boat : MonoBehaviour
     private FishSpawner fishSpawner;
     private NavMeshAgent agent;
     private bool WhichSide;
+
+    public ParticleSystem boatDestroyFish;
 
     void Start()
     {
@@ -63,16 +66,25 @@ public class Boat : MonoBehaviour
     {
         if (other.gameObject.CompareTag("FishPuddle1") || other.gameObject.CompareTag("FishPuddle2"))
         {
+            Instantiate(boatDestroyFish, other.transform.position, Quaternion.identity);
             fishSpawner.RemoveFishFromPuddleAndDestroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("PufferFish"))
         {
+            Instantiate(boatDestroyFish, other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Eel"))
         {
+            Instantiate(boatDestroyFish, other.transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("AnglerFish"))
+        {
+            Instantiate(boatDestroyFish, other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
         }
     }

@@ -2346,7 +2346,7 @@ MonoBehaviour:
   fishPuddlePrefab2: {fileID: 6313183734790760516, guid: 30e2c634e2a35624e8353f6cb735615e, type: 3}
   pufferFishPrefab: {fileID: 479665477555233952, guid: 8798548f1877c204ba7764ce7adda61a, type: 3}
   eelPrefab: {fileID: 2992643359502351957, guid: a4ed17f73f74794468ad5b70a1196c2c, type: 3}
-  anglerFishPrefab: {fileID: 5480837671032763043, guid: c341cfff52a173440805771cc3b8a551, type: 3}
+  anglerFishPrefab: {fileID: 148225764808992902, guid: 2aa1d5998ba16184cb5494f66c48f20d, type: 3}
   scoreTextPrefab: {fileID: 4107431990607391758, guid: 4ae10303f2e82644c87b77abfd608579, type: 3}
   scoreTextPrefab2x: {fileID: 4107431990607391758, guid: 0bc8ec51830f04e41ace3f5247f7ff2f, type: 3}
   spawnDelay1: 3
@@ -4868,6 +4868,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3893351734763340090, guid: 2352a2e29cdbfa34eb74eac7164f7a91, type: 3}
+      propertyPath: boatDestroyFish
+      value: 
+      objectReference: {fileID: 5304547304308912727, guid: bc5751194d85a4b44a4b6c003ddc31f0, type: 3}
     - target: {fileID: 4050838257307304802, guid: 2352a2e29cdbfa34eb74eac7164f7a91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
