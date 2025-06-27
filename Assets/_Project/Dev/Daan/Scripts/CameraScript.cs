@@ -32,14 +32,16 @@ public class CameraScript: MonoBehaviour
         // If we hit anything else than a fish puddle, we return (do nothing).
         if (!hit.collider.CompareTag("FishPuddle1") && !hit.collider.CompareTag("FishPuddle2")) return;
 
-        if(hit.collider.GetComponent<FishPuddle>().buff)
+        if (!hit.collider.GetComponent<FishPuddle>().buff)
         {
             // Text +1 score on the fish puddle that was hit.
+            Instantiate(fishSpawner.scoreTextPrefab, hit.point, Quaternion.identity);
+        }
+        else
+        {
+            // Text +2 score on the fish puddle that was hit.
             Instantiate(fishSpawner.scoreTextPrefab2x, hit.point, Quaternion.identity);
         }
-        // Text +1 score on the fish puddle that was hit.
-        Instantiate(fishSpawner.scoreTextPrefab, hit.point, Quaternion.identity);
-
         // Remove the fish and destroy
         fishSpawner.RemoveFishFromPuddleAndDestroy(hit.collider.gameObject);
 

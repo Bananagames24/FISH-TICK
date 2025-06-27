@@ -10,7 +10,7 @@ public class Boat : MonoBehaviour
     private NavMeshAgent agent;
     private bool WhichSide;
 
-    public ParticleSystem boatDestroyFish;
+    public GameObject boatDestroyFish;
 
     void Start()
     {
@@ -72,7 +72,7 @@ public class Boat : MonoBehaviour
 
         if (other.gameObject.CompareTag("PufferFish"))
         {
-            Instantiate(boatDestroyFish, other.transform.position, Quaternion.identity);
+            Instantiate(boatDestroyFish, new Vector3(other.transform.position.x,transform.position.y,other.transform.position.z), Quaternion.identity);
             Destroy(other.gameObject);
         }
 

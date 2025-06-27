@@ -10,7 +10,7 @@ public class AnglerFish : MonoBehaviour
     private bool deActivateAbillity = false;
     public int playerSide;
     private float radius = 4.5f;
-    private float timer = 5;
+    private float timer = 8;
     private NavMeshAgent navMeshAgent;
     private float yPos = 0f;
     private float xPos;
@@ -120,8 +120,7 @@ public class AnglerFish : MonoBehaviour
     /// <param name="activateBuff"> Wether to activate the buff or not. </param>
     private void RefreshBuff(string tag, bool activateBuff)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-
+        Collider[] colliders = Physics.OverlapCapsule(transform.position, transform.position - Vector3.up * 3, radius);
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag(tag))
