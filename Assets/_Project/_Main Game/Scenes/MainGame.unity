@@ -873,7 +873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiFill: {fileID: 628452077}
-  duration: 80
+  duration: 70
   pause: 0
   gameManager: {fileID: 690596226}
   pauseUI: {fileID: 744713952}
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   - {fileID: 1481380575}
   - {fileID: 97563884}
   - {fileID: 589391540}
-  - {fileID: 0}
+  - {fileID: 453458310}
   timer: {fileID: 453458311}
   eelEffect:
   - {fileID: 1475841151}
