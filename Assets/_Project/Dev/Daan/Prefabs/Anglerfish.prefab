@@ -327,7 +327,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.511876, g: 0, b: 0.68235296, a: 1}
+  m_Color: {r: 1, g: 0.91505504, b: 0.65471697, a: 1}
   m_Intensity: 5
   m_Range: 3
   m_SpotAngle: 30
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2x POINTS
+  m_text: Double points!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3314d80fb6ac355418730d7ae4c5a814, type: 2}
   m_sharedMaterial: {fileID: -7210241071231031646, guid: 3314d80fb6ac355418730d7ae4c5a814, type: 2}
