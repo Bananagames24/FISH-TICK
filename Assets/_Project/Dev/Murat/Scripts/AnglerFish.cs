@@ -17,6 +17,7 @@ public class AnglerFish : MonoBehaviour
     private float zPos;
     private Vector3 destination;
     [SerializeField] private GameObject anglerFishLight;
+    public AudioSource anglerFishSound;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class AnglerFish : MonoBehaviour
 
         if (isActive)
         {
+            
             string side = playerSide == 0 ? "FishPuddle1" : "FishPuddle2";
             RefreshBuff(side, true);
             timer -= Time.deltaTime;
@@ -48,6 +50,7 @@ public class AnglerFish : MonoBehaviour
             {
                 RefreshBuff(side, false);
                 isActive = false;
+                anglerFishSound.Stop();
                 Destroy(gameObject);
             }
         }
@@ -109,6 +112,7 @@ public class AnglerFish : MonoBehaviour
             {
                 hit.collider.enabled = false;
                 hit.transform.GetComponent<AnglerFish>().AnglerFishAbillity();
+                anglerFishSound.Play();
             }
         }
     }

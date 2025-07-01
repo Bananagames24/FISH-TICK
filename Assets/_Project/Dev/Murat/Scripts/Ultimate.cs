@@ -17,10 +17,19 @@ public class Ultimate : MonoBehaviour
     public float ultimateFillAmount;
     [Header("Switch Between Player 1 / 2, off = P1, on = P2")]
     public bool player;
+    private bool isUltimateSoundReady = true;
+    public AudioSource ultimateReadySound;
+    public AudioSource ultimateActivateSound;
 
     private void Update()
     {
         ultimateBar.fillAmount = ultimateFillAmount;
+
+        if (ultimateFillAmount >= 1 && isUltimateSoundReady)
+        {
+            ultimateReadySound.Play();
+            isUltimateSoundReady = false;
+        }
 
         if (ultimateBar.fillAmount >= 1)
         {
@@ -54,6 +63,8 @@ public class Ultimate : MonoBehaviour
             timeShake = 5;
             ultimateFillAmount = 0;
             isScreenShaking = true;
+            isUltimateSoundReady = true;
+            ultimateActivateSound.Play();
             StartCoroutine(UltimateBuff());
         }
         else return;
@@ -95,7 +106,7 @@ public class Ultimate : MonoBehaviour
     {
         if (!player)
         {
-            for (int i = 0; i < 60;)
+            for (int i = 0; i < 50;)
             {
                 fishSpawner.SpawnFishOnRandomPosition(fishSpawner.fishPuddlePrefab1, fishSpawner.spawnPoint1, -9.5f, -1f, fishSpawner.fishPuddles1, true);
                 yield return new WaitForSeconds(0.1f);
@@ -104,7 +115,7 @@ public class Ultimate : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < 60;)
+            for (int i = 0; i < 50;)
             {
                 fishSpawner.SpawnFishOnRandomPosition(fishSpawner.fishPuddlePrefab2, fishSpawner.spawnPoint2, 9.5f, 1f, fishSpawner.fishPuddles2, false);
                 yield return new WaitForSeconds(0.1f);

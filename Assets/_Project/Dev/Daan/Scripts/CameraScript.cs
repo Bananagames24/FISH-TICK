@@ -60,8 +60,8 @@ public class CameraScript: MonoBehaviour
         }
         
 
-        ultimateP1.ultimateFillAmount += isPlayer1 ? 0.02f : 0f;
-        ultimateP2.ultimateFillAmount += isPlayer1 ? 0f : 0.02f;
+        ultimateP1.ultimateFillAmount += isPlayer1 ? 0.0175f : 0f;
+        ultimateP2.ultimateFillAmount += isPlayer1 ? 0f : 0.0175f;
 
     }
 }
