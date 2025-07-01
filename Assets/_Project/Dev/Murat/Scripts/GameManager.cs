@@ -27,10 +27,15 @@ public class GameManager : MonoBehaviour
     private bool timerBool = true;
     private int countDownCounter = 0;
     public bool isUltimateActive = false;
+    public AudioSource backgroundMusic;
+    public AudioSource countdownSound;
 
     void Start()
     {
         BeginCountdown();
+        backgroundMusic.Play();
+        countdownSound.Play();
+
     }
 
     void Update()
@@ -50,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void BeginCountdown()
     {
+
         countDownTimer = 0.3f;
         countDownBool = true;
         countDownCounter = 0;

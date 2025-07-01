@@ -20,6 +20,7 @@ public class Eel : MonoBehaviour
     float xPos;
     float zPos;
     Vector3 Destination;
+    public AudioSource eelSound;
 
     void Start()
     {
@@ -62,6 +63,7 @@ public class Eel : MonoBehaviour
                 if (transform.position.x > 2)
                 {
                     StartCoroutine(gameManeger.EelAbillity(playerInput));
+
                     for (int i = 0; i < arc1s.Count; i++)
                     {
                         GameObject stun = Instantiate(elecStun);
@@ -75,6 +77,7 @@ public class Eel : MonoBehaviour
                     }
                     abilityActive = false;
                     abilityDisabled = true;
+                    eelSound.Play();
                     Destroy(gameObject, 4.5f);
                 }
             }
@@ -97,7 +100,8 @@ public class Eel : MonoBehaviour
                     }
                     abilityActive = false;
                     abilityDisabled = true;
-                   Destroy(gameObject, 4.5f);
+                    eelSound.Play();
+                    Destroy(gameObject, 4.5f);
                 }
             }
         }
