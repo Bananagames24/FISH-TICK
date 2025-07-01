@@ -8,7 +8,7 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 2
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -145,6 +145,9 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  - {fileID: 644505955466283386, guid: 4587246b42e46204d9d6f9a6c47e157e, type: 2}
+  - {fileID: 11400000, guid: 37adf1e7346f2ef4c89fb8d199161cff, type: 2}
+  - {fileID: 11400000, guid: a036d9e7e8396db4eadf33caafcbd331, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -495,8 +498,8 @@ PlayerSettings:
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: f1466e5dfc08b2242837d3b253ea2569, type: 3}
-      - {fileID: 2800000, guid: f1466e5dfc08b2242837d3b253ea2569, type: 3}
+      - {fileID: 2800000, guid: 785aeb6e53105484eb80cf94eb32f1b3, type: 3}
+      - {fileID: 2800000, guid: 785aeb6e53105484eb80cf94eb32f1b3, type: 3}
       m_Width: 432
       m_Height: 432
       m_Kind: 2
