@@ -23,14 +23,9 @@ public class Timer : MonoBehaviour
         {
             if (!pause)
             {
-                pauseUI.SetActive(false);
                 uiFill.fillAmount = Mathf.InverseLerp(0, duration, remaningDuration);
                 remaningDuration--;
                 yield return new WaitForSeconds(1f);
-            }
-            else
-            {
-                pauseUI.SetActive(true);
             }
                 yield return null;
         }
@@ -41,6 +36,17 @@ public class Timer : MonoBehaviour
     public void Pause()
     {
         pause = !pause;
+        if (pause)
+        {
+            pauseUI.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseUI.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        
     }
 
     private void OnEnd()
