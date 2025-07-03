@@ -22,6 +22,7 @@ public class ButtonScript : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("StartScreen");
+        Time.timeScale = 1.0f;
     }
 
     public void LoadCredits()
